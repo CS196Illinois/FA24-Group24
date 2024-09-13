@@ -1,0 +1,15 @@
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/bin/Debug/net8.0/BaseGameDEV
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/bin/Debug/net8.0/BaseGameDEV.deps.json
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/bin/Debug/net8.0/BaseGameDEV.runtimeconfig.json
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/bin/Debug/net8.0/BaseGameDEV.dll
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/bin/Debug/net8.0/BaseGameDEV.pdb
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.AssemblyInfoInputs.cache
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.AssemblyInfo.cs
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.csproj.CoreCompileInputs.cache
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.sourcelink.json
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.dll
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/refint/BaseGameDEV.dll
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.pdb
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/BaseGameDEV.genruntimeconfig.cache
+/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/Debug/net8.0/ref/BaseGameDEV.dll
