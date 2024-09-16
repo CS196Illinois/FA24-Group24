@@ -5,7 +5,7 @@ namespace BaseGameDEV
 {  
     class CurrentMap
     {
-
+        //MapInformation I'd assume
     }
     
     class Player
@@ -22,6 +22,7 @@ namespace BaseGameDEV
 
     class PlayerAction
     {
+        //basic movement so far
         private Player P;
         public PlayerAction(Player iplayer){
             P = iplayer;
@@ -39,9 +40,15 @@ namespace BaseGameDEV
             P.Pos[0]++;
         }
     }
-
-        class Program    
+    class UI
     {
+        //Add UI to handle command input and avoids prolong else if statement
+        //Also to prompt user on what command is available
+    }
+
+    class Program    
+    {
+        //have basic login and exit command
         static void Main(string[] args)
         {
             string command;
