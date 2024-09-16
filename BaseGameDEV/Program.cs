@@ -52,11 +52,14 @@ namespace BaseGameDEV
         //Add UI to handle command input and avoids prolong else if statement
         //Also to prompt user on what command is available
         PlayerAction session;
-        dynamic response;
+
         public UI(PlayerAction isession) {
             session = isession;
-        }      
+        }   
+    
+           
         public String Process(string command) {
+            dynamic response = null;
             MethodInfo methodinfo = typeof(PlayerAction).GetMethod(command);
             if (methodinfo != null) {
                 response = methodinfo.Invoke(session, null);                
@@ -87,7 +90,7 @@ namespace BaseGameDEV
             while (true) 
             {              
                 UI Window = new UI(session);
-                Console.Write("Command:");
+                Console.Write("Command: ");
                 command = Console.ReadLine();
                 if (command.Equals("quit")) {
                     break;
