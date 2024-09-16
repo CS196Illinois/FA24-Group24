@@ -1,6 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System;
+using System.Diagnostics;
+using System.Net;
+using System.Reflection;
+using System.Security.Principal;
 namespace BaseGameDEV
 {  
     class CurrentMap
@@ -39,11 +43,34 @@ namespace BaseGameDEV
         public void RIGHT(){
             P.Pos[0]++;
         }
+        public void getPOS(){
+            Console.WriteLine("(" + (P.Pos[0]).ToString() + "," + (P.Pos[1]).ToString() + ")");
+        }
     }
     class UI
     {
         //Add UI to handle command input and avoids prolong else if statement
         //Also to prompt user on what command is available
+        PlayerAction session;
+        dynamic response;
+        public UI(PlayerAction isession) {
+            session = isession;
+        }      
+        public String Process(string command) {
+            MethodInfo methodinfo = typeof(PlayerAction).GetMethod(command);
+            if (methodinfo != null) {
+                response = methodinfo.Invoke(session, null);                
+            } else {
+                Console.WriteLine("Method not found.");
+            }    
+            if (response != null) {
+                return response;
+            } else {
+                return null;
+            }
+        }
+
+        
     }
 
     class Program    
@@ -52,29 +79,22 @@ namespace BaseGameDEV
         static void Main(string[] args)
         {
             string command;
-            Player Usr;
-            PlayerAction session;
+
             Console.WriteLine("Hello to our game, type 'quit' to exit");
             Console.WriteLine("Enter your name:");
-            Usr = new Player(Console.ReadLine());
-            session = new PlayerAction(Usr);
+            Player Usr = new Player("Ethan");
+            PlayerAction session = new PlayerAction(Usr);
             while (true) 
             {              
-                Console.WriteLine("Command:");
+                UI Window = new UI(session);
+                Console.Write("Command:");
                 command = Console.ReadLine();
-                if (command == "quit") {
+                if (command.Equals("quit")) {
                     break;
-                } else if (command == "up") {
-                    session.UP();
-                } else if (command == "down") {
-                    session.DOWN();
-                } else if (command == "left") {
-                    session.LEFT();
-                } else if (command == "right") {
-                    session.RIGHT();
-                } else if (command == "checkpos") {
-                    Console.WriteLine(Usr.Name + " (" + Usr.Pos[0] + ", " + Usr.Pos[1] + ")");
-                }  
+                } else {
+                    Console.WriteLine(Window.Process(command));
+                }
+                             
             }
         }
     }
