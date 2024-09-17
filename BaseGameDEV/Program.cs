@@ -18,8 +18,7 @@ namespace BaseGameDEV
         private string Name;
         public int[] Pos = new int[2];
 
-        public Player(string iname){
-            Name = iname;
+        public Player(){
             Pos[0] = 0;
             Pos[1] = 0;
         }
@@ -34,6 +33,7 @@ namespace BaseGameDEV
     class PlayerAction
     {
         //basic movement so far
+        //can only return strings
         private Player P;
         public PlayerAction(Player iplayer){
             P = iplayer;
@@ -57,14 +57,19 @@ namespace BaseGameDEV
         public void RIGHT(){
             P.Pos[0]++;
         }
-        public void getPOS(){
-            Console.WriteLine("(" + (P.Pos[0]).ToString() + "," + (P.Pos[1]).ToString() + ")");
+        public String getPOS(){
+            return "(" + (P.Pos[0]).ToString() + "," + (P.Pos[1]).ToString() + ")";
+        }  
+
+        // Test Methods
+        public String Echo(string subject){
+            return subject;
         }
 
-        //for testing purpose only
-        public int test(int a, int b, int c) {
-            return a + b + c;
+        public String Sum(int a, int b, int c) {
+            return $"The sum is: {a + b + c}";
         }
+
     }
     class UI
     {
@@ -77,7 +82,7 @@ namespace BaseGameDEV
         }   
     
            
-        public String Process(string command) {
+        public string Process(string command) {
             dynamic response = null;
             MethodInfo methodinfo = typeof(PlayerAction).GetMethod(command);
             if (methodinfo != null) 
@@ -90,40 +95,21 @@ namespace BaseGameDEV
                     for (int i = 0; i < parameters.Length; i++) {
                         Console.WriteLine($"Enter {parameters[i].Name} of type {parameters[i].ParameterType}:");
                         dynamic input = Console.ReadLine();
+                        
                         if (input == "") {
                             return null;
                         }
+                        
                         args[i] = Convert.ChangeType(input, parameters[i].ParameterType);
+                        
                     }
                     response = methodinfo.Invoke(session, args);
                 }
             } else {
                 Console.WriteLine("Method not found.");
             }    
-
-            if (response != null) {
-                return response;
-            } else {
-                return null;
-            }
+            return response;
         }
-
-        public String Process(string command, dynamic input) {
-            dynamic response = null;
-            MethodInfo methodinfo = typeof(PlayerAction).GetMethod(command);
-            if (methodinfo != null) {
-                response = methodinfo.Invoke(session, input);                
-            } else {
-                Console.WriteLine("Method not found.");
-            }    
-            if (response != null) {
-                return response;
-            } else {
-                return null;
-            }
-        }
-
-        
     }
 
     class Program    
@@ -133,8 +119,7 @@ namespace BaseGameDEV
         {
             string command;
             Console.WriteLine("Hello to our game, type 'quit' to exit");
-            Console.WriteLine("Enter your name:");
-            Player Usr = new Player("Ethan");
+            Player Usr = new Player();
             PlayerAction session = new PlayerAction(Usr);
             while (true) 
             {              
@@ -145,8 +130,7 @@ namespace BaseGameDEV
                     break;
                 } else {
                     Console.WriteLine(Window.Process(command));
-                }
-                             
+                }                        
             }
         }
     }
