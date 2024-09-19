@@ -1,12 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Net;
-using System.Reflection;
-using System.Security.Principal;
-using PlayerEND;
 using UIEnd;
 namespace Program
 {    
@@ -30,10 +24,10 @@ namespace Program
                     if (response != null) {
                         Console.WriteLine(response);
                     } 
-                }
-                            
+                }                
             }
         }
+
     }
 }
 

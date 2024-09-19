@@ -1,7 +1,10 @@
+using System;
+using MapEnd;
 namespace PlayerEND
 {
 class Player
     {
+        //Basic Player Attributes
         private string? Name;
         public int[] Pos = [0, 0];
         public String get() {
@@ -17,12 +20,14 @@ class Player
 
     class PlayerAction
     {
-        //basic movement so far
+        //Basic Player Action
         //can only return strings
         //Uppercase method ONLY
         private Player P;
-        public PlayerAction(Player iplayer){
+        private Map current;
+        public PlayerAction(Player iplayer, Map icurrent){
             P = iplayer;
+            current = icurrent;
         }
         public void SETNAME(String name){
             P.set(name);
@@ -45,6 +50,11 @@ class Player
         public String GETPOS(){
             return "(" + P.Pos[0].ToString() + "," + P.Pos[1].ToString() + ")";
         }  
+        public String EXPLORE()
+        {
+            current.NEWROOM();
+            return current.getCurrentStatus();
+        }
 
         // Test Methods
         public String ECHO(string subject){

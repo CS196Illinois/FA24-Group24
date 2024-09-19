@@ -1,3 +1,4 @@
+using System;
 using PlayerEND;
 using MapEnd;
 using System.Reflection;
@@ -9,10 +10,10 @@ namespace UIEnd
         //Also + prompt user on what command is available
         Player P;
         PlayerAction session;
-
+        Map current = new Map();
         public UI() {
             P = new Player();
-            session = new PlayerAction(P);
+            session = new PlayerAction(P, current);
         }   
     
        
