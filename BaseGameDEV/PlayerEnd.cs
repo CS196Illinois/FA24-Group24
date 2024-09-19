@@ -1,5 +1,5 @@
 using System;
-using MapEnd;
+using MapEnd; //Gain Access to Map Operation
 namespace PlayerEND
 {
 class Player
@@ -50,6 +50,8 @@ class Player
         public String GETPOS(){
             return "(" + P.Pos[0].ToString() + "," + P.Pos[1].ToString() + ")";
         }  
+        
+        //Experimental
         public String EXPLORE()
         {
             current.NEWROOM();

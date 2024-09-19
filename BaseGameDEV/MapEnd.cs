@@ -1,3 +1,5 @@
+//Experimental using LinkedList, and randomly generated room "status"
+
 using System;
 namespace MapEnd
 {    
