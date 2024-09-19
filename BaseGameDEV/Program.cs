@@ -16,12 +16,7 @@ namespace BaseGameDEV
     class Player
     {
         private string Name;
-        public int[] Pos = new int[2];
-
-        public Player(){
-            Pos[0] = 0;
-            Pos[1] = 0;
-        }
+        public int[] Pos = [0, 0];
         public String get() {
             return Name;
         }
@@ -34,17 +29,17 @@ namespace BaseGameDEV
     {
         //basic movement so far
         //can only return strings
+        //Uppercase method ONLY
         private Player P;
         public PlayerAction(Player iplayer){
             P = iplayer;
         }
-        public void setName(String iname){
+        public void SETNAME(String iname){
             P.set(iname);
         }
-        public String getName(){
+        public String GETNAME(){
             return P.get();
         }
-
         public void UP(){
             P.Pos[1]++;
         }
@@ -57,16 +52,16 @@ namespace BaseGameDEV
         public void RIGHT(){
             P.Pos[0]++;
         }
-        public String getPOS(){
+        public String GETPOS(){
             return "(" + (P.Pos[0]).ToString() + "," + (P.Pos[1]).ToString() + ")";
         }  
 
         // Test Methods
-        public String Echo(string subject){
+        public String ECHO(string subject){
             return subject;
         }
 
-        public String Sum(int a, int b, int c) {
+        public String SUM(int a, int b, int c) {
             return $"The sum is: {a + b + c}";
         }
 
@@ -74,16 +69,30 @@ namespace BaseGameDEV
     class UI
     {
         //Add UI to handle command input and avoids prolong else if statement
-        //Also to prompt user on what command is available
+        //Also + prompt user on what command is available
         PlayerAction session;
-
         public UI(PlayerAction isession) {
             session = isession;
         }   
     
+       
+        public string Prompt(){
+            String message = "";
+            MethodInfo[] methods = typeof(PlayerAction).GetMethods(BindingFlags.Public);
+            for (int i = 0; i < methods.Length; i++) {
+                message += $"{methods[i].Name}\n";
+            }
+            return message;
+        } // Doesn't work yet
            
         public string Process(string command) {
-            dynamic response = null;
+            dynamic response;
+
+            //String processing
+            command = command.ToUpper();
+            //
+
+            //Method Retrieval
             MethodInfo methodinfo = typeof(PlayerAction).GetMethod(command);
             if (methodinfo != null) 
             {
@@ -99,15 +108,17 @@ namespace BaseGameDEV
                         if (input == "") {
                             return null;
                         }
-                        
+
                         args[i] = Convert.ChangeType(input, parameters[i].ParameterType);
                         
                     }
                     response = methodinfo.Invoke(session, args);
                 }
             } else {
-                Console.WriteLine("Method not found.");
-            }    
+                return "Method not found.";
+            }   
+            //
+         
             return response;
         }
     }
@@ -116,21 +127,26 @@ namespace BaseGameDEV
     {
         //have basic login and exit command
         static void Main(string[] args)
-        {
-            string command;
+        {       
             Console.WriteLine("Hello to our game, type 'quit' to exit");
             Player Usr = new Player();
             PlayerAction session = new PlayerAction(Usr);
             while (true) 
-            {              
+            {      
+                string response;   
+                string command;     
                 UI Window = new UI(session);
                 Console.Write("Command: ");
                 command = Console.ReadLine();
                 if (command.Equals("quit")) {
                     break;
                 } else {
-                    Console.WriteLine(Window.Process(command));
-                }                        
+                    response = Window.Process(command);
+                    if (response != null) {
+                        Console.WriteLine(response);
+                    } 
+                }
+                            
             }
         }
     }
