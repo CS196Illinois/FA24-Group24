@@ -33,6 +33,7 @@ namespace UIEnd
 
             //String processing
             command = command.ToUpper();
+            command = command.Trim();
             //
 
             //Method Retrieval

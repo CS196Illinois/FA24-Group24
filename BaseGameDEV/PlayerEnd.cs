@@ -34,6 +34,7 @@ class Player
         }
         public String GETNAME(){
             return P.get();
+            //fix
         }
         public void UP(){
             P.Pos[1]++;
@@ -50,6 +51,8 @@ class Player
         public String GETPOS(){
             return "(" + P.Pos[0].ToString() + "," + P.Pos[1].ToString() + ")";
         }  
+
+        
         
         //Experimental
         public String EXPLORE()
@@ -65,6 +68,10 @@ class Player
 
         public String SUM(int FirstNum, int SecondNum, int ThirdNum) {
             return $"The sum is: {FirstNum + SecondNum + ThirdNum}";
+        }
+
+        public String HELLO() {
+            return "Hello";
         }
 
     }

@@ -1,5 +1,6 @@
 //Experimental using LinkedList, and randomly generated room "status"
-
+//Pre-determined frame work of map
+//Generate 5x5 grid. each cell is a new level....
 using System;
 namespace MapEnd
 {    

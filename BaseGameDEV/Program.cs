@@ -10,11 +10,11 @@ namespace Program
         static void Main(string[] args)
         {       
             Console.WriteLine("Hello to our game, type 'quit' to exit");
+            UI Window = new UI();
             while (true) 
             {      
                 string response;   
                 string command;     
-                UI Window = new UI();
                 Console.Write("Command: ");
                 command = Console.ReadLine();
                 if (command.Equals("quit")) {
