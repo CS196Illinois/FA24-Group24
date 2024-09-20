@@ -5,4 +5,5 @@ Group Name: SINISTER SEVEN
 
 Team Members: migulj2, yasha6, ethanma4, markdai2, ndowe, kaihaow2, ztukker2
 
+Ethan's version
 Project Manager: xdzhang2
