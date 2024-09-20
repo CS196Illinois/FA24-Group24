@@ -6,6 +6,14 @@ class Player
     {
         //Basic Player Attributes
         private string? Name;
+        private Dictionary<String, Object> stat = new Dictionary<string, object>{
+            ["Name"] = "Ethan", 
+            ["Hp"] = 10,
+            ["Atk"] = 5,
+            ["Def"] = 5,
+            ["Rizz"] = 10000
+        };
+
         public int[] Pos = [0, 0];
         public String get() {
             if (Name == null) {
@@ -51,8 +59,7 @@ class Player
         public String GETPOS(){
             return "(" + P.Pos[0].ToString() + "," + P.Pos[1].ToString() + ")";
         }  
-
-        
+    
         
         //Experimental
         public String EXPLORE()

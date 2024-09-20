@@ -47,8 +47,7 @@ namespace UIEnd
                     object[] args = new object[parameters.Length];
                     for (int i = 0; i < parameters.Length; i++) {
                         Console.WriteLine($"Enter {parameters[i].Name} of type {parameters[i].ParameterType}:");
-                        dynamic input = Console.ReadLine();
-                        
+                        dynamic input = Console.ReadLine();                  
                         if (input == "") {
                             return null;
                         }
