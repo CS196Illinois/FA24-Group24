@@ -1,5 +1,227 @@
 {
-    "Comment": "Perhaps store map information and layout here????",
-    "Room1" : "There is something here",
-    "RightRoom" : "Room 2"
+  "Room0": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      0,
+      23,
+      6,
+      17
+    ]
+  },
+  "Room1": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      3,
+      21,
+      15,
+      0
+    ]
+  },
+  "Room2": {
+    "Description": "A giant statue",
+    "Adjacent": [
+      7,
+      21,
+      0,
+      3
+    ]
+  },
+  "Room3": {
+    "Description": "Hector of Troy",
+    "Adjacent": [
+      22,
+      9,
+      11,
+      5
+    ]
+  },
+  "Room4": {
+    "Description": "Do a math problem",
+    "Adjacent": [
+      0,
+      20,
+      20,
+      9
+    ]
+  },
+  "Room5": {
+    "Description": "Swift-Footed Achilles",
+    "Adjacent": [
+      9,
+      0,
+      4,
+      7
+    ]
+  },
+  "Room6": {
+    "Description": "A giant statue",
+    "Adjacent": [
+      22,
+      3,
+      2,
+      7
+    ]
+  },
+  "Room7": {
+    "Description": "Hector of Troy",
+    "Adjacent": [
+      0,
+      14,
+      3,
+      4
+    ]
+  },
+  "Room8": {
+    "Description": "A giant statue",
+    "Adjacent": [
+      14,
+      17,
+      8,
+      1
+    ]
+  },
+  "Room9": {
+    "Description": "Agamemnon, Lion of Mycenae",
+    "Adjacent": [
+      9,
+      8,
+      4,
+      20
+    ]
+  },
+  "Room10": {
+    "Description": "A giant statue",
+    "Adjacent": [
+      18,
+      18,
+      5,
+      22
+    ]
+  },
+  "Room11": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      0,
+      15,
+      1,
+      9
+    ]
+  },
+  "Room12": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      12,
+      21,
+      8,
+      3
+    ]
+  },
+  "Room13": {
+    "Description": "Hector of Troy",
+    "Adjacent": [
+      6,
+      22,
+      12,
+      2
+    ]
+  },
+  "Room14": {
+    "Description": "Do a math problem",
+    "Adjacent": [
+      15,
+      13,
+      1,
+      9
+    ]
+  },
+  "Room15": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      10,
+      13,
+      22,
+      6
+    ]
+  },
+  "Room16": {
+    "Description": "Swift-Footed Achilles",
+    "Adjacent": [
+      2,
+      9,
+      4,
+      7
+    ]
+  },
+  "Room17": {
+    "Description": "Do a math problem",
+    "Adjacent": [
+      15,
+      15,
+      2,
+      19
+    ]
+  },
+  "Room18": {
+    "Description": "A giant statue",
+    "Adjacent": [
+      20,
+      21,
+      5,
+      0
+    ]
+  },
+  "Room19": {
+    "Description": "Do a math problem",
+    "Adjacent": [
+      4,
+      13,
+      6,
+      1
+    ]
+  },
+  "Room20": {
+    "Description": "Agamemnon, Lion of Mycenae",
+    "Adjacent": [
+      13,
+      15,
+      19,
+      0
+    ]
+  },
+  "Room21": {
+    "Description": "Do a math problem",
+    "Adjacent": [
+      21,
+      22,
+      21,
+      21
+    ]
+  },
+  "Room22": {
+    "Description": "Do a math problem",
+    "Adjacent": [
+      5,
+      2,
+      23,
+      20
+    ]
+  },
+  "Room23": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      23,
+      14,
+      9,
+      21
+    ]
+  },
+  "Room24": {
+    "Description": "A giant statue",
+    "Adjacent": [
+      2,
+      0,
+      13,
+      2
+    ]
+  }
 }

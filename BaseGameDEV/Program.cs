@@ -1,12 +1,13 @@
 ﻿using System;
 using UIEnd;
+using MapEnd;
 
 namespace RPGGame
 {    
     class Program    
     {
-        static void Main(string[] args)
-        {       
+        static void Main(string[] args)         
+        {    
             Console.WriteLine("Welcome to our game! Type 'quit' to exit or 'help' for available commands.");
             UI gameUI = new UI();
             while (true) 
