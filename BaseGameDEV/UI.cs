@@ -1,19 +1,17 @@
 using System;
 using PlayerEnd;
-using MapEnd;
 using System.Reflection;
+using System.Dynamic;
 
 namespace UIEnd
 {
     class UI
     {
-        private Player player; 
-        private PlayerAction playerAction; 
-        private Map currentMap = new Map(); 
+        private PlayerAction playerAction {get; set;} 
+        private Player usr = new Player();
 
         public UI() {
-            player = new Player();
-            playerAction = new PlayerAction(player, currentMap);
+            playerAction = new PlayerAction(usr);    
         }   
 
         // Returns a list of available commands and their effects
@@ -25,11 +23,12 @@ namespace UIEnd
                    "DOWN - Move down\n" +
                    "LEFT - Move left\n" +
                    "RIGHT - Move right\n" +
-                   "GETPOS - Get current position\n" +
+                   "GETRM - Get current room\n" +
                    "EXPLORE - Explore the room\n" +
                    "ECHO - Echo the message\n" +
                    "SUM - Return the sum of the three numbers\n" +
-                   "HELLO - Hellooooooooooooooooo!";
+                   "HELLO - Hellooooooooooooooooo!\n" + 
+                   "GENERATE - Generate new Map";
         }
 
         // Processes user commands and invokes corresponding actions
@@ -55,7 +54,7 @@ namespace UIEnd
                     response = methodInfo.Invoke(playerAction, args);
                 }
             } else {
-                return "Method not found.";
+                return "Method Not Found.";
             }
          
             return response;

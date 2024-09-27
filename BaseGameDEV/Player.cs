@@ -1,12 +1,17 @@
 using System;
+using System.ComponentModel;
 using MapEnd;
+using minigame;
 
 namespace PlayerEnd
 {
     class Player
     {
-        private string? name; 
-        public int[] position = new int[2] { 0, 0 }; 
+        public string? name; 
+        public int RMNumber; 
+        //This currently represents the player's current position as a room number, 
+        //the entire room dictionary is stored in MapEnd, and accessed via calling mapaction methods and inputting said rmnumber to evaluate
+
 
         // Gets the player's name or prompts to set it if not set
         public string GetName() {
@@ -19,14 +24,16 @@ namespace PlayerEnd
         }
     }
 
-    class PlayerAction
+    class PlayerAction 
     {
         private Player player; 
-        private Map currentMap; 
+        private MapAction mymap;
+        
 
-        public PlayerAction(Player inputPlayer, Map inputMap) {
+        public PlayerAction(Player inputPlayer) {
             player = inputPlayer;
-            currentMap = inputMap;
+            mymap = new MapAction();
+            player.RMNumber = 0;
         }
 
         public void SETNAME(string name) {
@@ -38,28 +45,24 @@ namespace PlayerEnd
         }
 
         public void UP() {
-            player.position[1]++;
+            player.RMNumber = mymap.getNext(player.RMNumber, "UP");
         }
-
         public void DOWN() {
-            player.position[1]--;
+            player.RMNumber = mymap.getNext(player.RMNumber, "DOWN");
         }
-
         public void LEFT() {
-            player.position[0]--;
+            player.RMNumber = mymap.getNext(player.RMNumber, "LEFT");
         }
-
         public void RIGHT() {
-            player.position[0]++;
+            player.RMNumber = mymap.getNext(player.RMNumber, "RIGHT");
         }
 
-        public string GETPOS() {
-            return $"({player.position[0]}, {player.position[1]})";
+        public string GETRM() {
+            return $"Room {player.RMNumber}";
         }  
 
         public string EXPLORE() {
-            currentMap.NEWROOM();
-            return currentMap.GetCurrentStatus();
+            return mymap.getDescription(player.RMNumber);       
         }
 
         public string ECHO(string subject) {
@@ -72,6 +75,22 @@ namespace PlayerEnd
 
         public string HELLO() {
             return "Hello";
+        }
+
+        public string EVALUATE() {
+            minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber);
+            if (challenge.checkResult()) {
+                return "Good job, you may continue.";
+            } else {
+                player.RMNumber = 0;
+                return "Back to the beginning";
+            }
+        }
+
+        //GENERATE --> MapAction Generate --> Map GenerateMap
+        public string GENERATE() {
+            mymap.Generate();
+            return "New Map Generated";
         }
     }
 }

@@ -1,5 +1,227 @@
 {
-    "Comment": "Perhaps store map information and layout here????",
-    "Room1" : "There is something here",
-    "RightRoom" : "Room 2"
+  "Room0": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      18,
+      5,
+      8,
+      21
+    ]
+  },
+  "Room1": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      2,
+      0,
+      6,
+      19
+    ]
+  },
+  "Room2": {
+    "Description": "I took a pill in Ibiza",
+    "Adjacent": [
+      0,
+      15,
+      15,
+      16
+    ]
+  },
+  "Room3": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      6,
+      14,
+      5,
+      20
+    ]
+  },
+  "Room4": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      24,
+      23,
+      18,
+      5
+    ]
+  },
+  "Room5": {
+    "Description": "Rocket Man",
+    "Adjacent": [
+      24,
+      10,
+      0,
+      8
+    ]
+  },
+  "Room6": {
+    "Description": "I took a pill in Ibiza",
+    "Adjacent": [
+      7,
+      19,
+      0,
+      1
+    ]
+  },
+  "Room7": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      19,
+      23,
+      3,
+      13
+    ]
+  },
+  "Room8": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      18,
+      16,
+      21,
+      17
+    ]
+  },
+  "Room9": {
+    "Description": "Swift-Footed Achilles",
+    "Adjacent": [
+      9,
+      15,
+      10,
+      10
+    ]
+  },
+  "Room10": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      14,
+      9,
+      13,
+      15
+    ]
+  },
+  "Room11": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      0,
+      18,
+      19,
+      20
+    ]
+  },
+  "Room12": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      3,
+      12,
+      21,
+      6
+    ]
+  },
+  "Room13": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      13,
+      17,
+      18,
+      12
+    ]
+  },
+  "Room14": {
+    "Description": "I took a pill in Ibiza",
+    "Adjacent": [
+      0,
+      9,
+      9,
+      3
+    ]
+  },
+  "Room15": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      23,
+      11,
+      15,
+      24
+    ]
+  },
+  "Room16": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      15,
+      4,
+      21,
+      13
+    ]
+  },
+  "Room17": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      23,
+      11,
+      3,
+      20
+    ]
+  },
+  "Room18": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      20,
+      14,
+      15,
+      10
+    ]
+  },
+  "Room19": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      3,
+      11,
+      4,
+      15
+    ]
+  },
+  "Room20": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      7,
+      22,
+      12,
+      23
+    ]
+  },
+  "Room21": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      2,
+      21,
+      9,
+      23
+    ]
+  },
+  "Room22": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      13,
+      11,
+      1,
+      1
+    ]
+  },
+  "Room23": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      5,
+      3,
+      0,
+      13
+    ]
+  },
+  "Room24": {
+    "Description": "Rocket Man",
+    "Adjacent": [
+      4,
+      18,
+      18,
+      10
+    ]
+  }
 }
