@@ -1,2 +1,5 @@
-.DS_Store
-*/Debug
+# Ignore the Directory
+BaseGameDEV/bin/
+BaseGameDEV/obj/
+
+
