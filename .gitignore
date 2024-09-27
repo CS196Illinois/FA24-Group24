@@ -1,5 +1,3 @@
 # Ignore the Directory
-BaseGameDEV/bin/
-BaseGameDEV/obj/
-
-
+bin/
+obj/
