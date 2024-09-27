@@ -2,8 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
-using System.Transactions;
-using System.Dynamic;
+using minigame;
 
 
 
@@ -20,13 +19,16 @@ namespace MapEnd
         public Dictionary<int, string> mapInfo = new Dictionary<int, string> // Current possible room state
         {
             [1] = "Nothing to be found here",
-            [2] = "Do a math problem",
+            [2] = "MathQuestion",
             [3] = "Tell me your name", 
             [4] = "A giant statue",
             [5] = "Swift-Footed Achilles",
-            [6] = "Agamemnon, Lion of Mycenae",
+            [6] = "DiceRoll",
             [7] = "Hector of Troy",
-            [8] = "Rhesus of Thrace"
+            [8] = "Rhesus of Thrace",
+            [9] = "Memnon, Prince of Ethiopia",
+            [10] = "I took a pill in Ibiza",
+            [11] = "Rocket Man"
         };
         
         public Dictionary<string, Room> Rooms = new Dictionary<string, Room>(); //The local map storage while program is running.
@@ -56,6 +58,8 @@ namespace MapEnd
         }
 
         */
+
+        //2D Array Maybe; make euclidean and playable
         public string GenerateMap() {
             File.WriteAllText(filepath, ""); //Clear the file
             //Prep the list of rooms
@@ -63,7 +67,7 @@ namespace MapEnd
             Random random = new Random(); //Randomization
             for (int i = 0; i < 25; i++) {    
                 //Add 25 random rooms, each with a random adjacent array leading to non-euclidean navigating
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 8)], Adjacent = [random.Next(0, 24), random.Next(0, 24), random.Next(0, 24), random.Next(0, 24)]});
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 12)], Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map

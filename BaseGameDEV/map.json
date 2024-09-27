@@ -1,227 +1,227 @@
 {
   "Room0": {
-    "Description": "Nothing to be found here",
-    "Adjacent": [
-      0,
-      23,
-      6,
-      17
-    ]
-  },
-  "Room1": {
     "Description": "Tell me your name",
-    "Adjacent": [
-      3,
-      21,
-      15,
-      0
-    ]
-  },
-  "Room2": {
-    "Description": "A giant statue",
-    "Adjacent": [
-      7,
-      21,
-      0,
-      3
-    ]
-  },
-  "Room3": {
-    "Description": "Hector of Troy",
-    "Adjacent": [
-      22,
-      9,
-      11,
-      5
-    ]
-  },
-  "Room4": {
-    "Description": "Do a math problem",
-    "Adjacent": [
-      0,
-      20,
-      20,
-      9
-    ]
-  },
-  "Room5": {
-    "Description": "Swift-Footed Achilles",
-    "Adjacent": [
-      9,
-      0,
-      4,
-      7
-    ]
-  },
-  "Room6": {
-    "Description": "A giant statue",
-    "Adjacent": [
-      22,
-      3,
-      2,
-      7
-    ]
-  },
-  "Room7": {
-    "Description": "Hector of Troy",
-    "Adjacent": [
-      0,
-      14,
-      3,
-      4
-    ]
-  },
-  "Room8": {
-    "Description": "A giant statue",
-    "Adjacent": [
-      14,
-      17,
-      8,
-      1
-    ]
-  },
-  "Room9": {
-    "Description": "Agamemnon, Lion of Mycenae",
-    "Adjacent": [
-      9,
-      8,
-      4,
-      20
-    ]
-  },
-  "Room10": {
-    "Description": "A giant statue",
     "Adjacent": [
       18,
-      18,
       5,
-      22
-    ]
-  },
-  "Room11": {
-    "Description": "Tell me your name",
-    "Adjacent": [
-      0,
-      15,
-      1,
-      9
-    ]
-  },
-  "Room12": {
-    "Description": "Tell me your name",
-    "Adjacent": [
-      12,
-      21,
       8,
-      3
-    ]
-  },
-  "Room13": {
-    "Description": "Hector of Troy",
-    "Adjacent": [
-      6,
-      22,
-      12,
-      2
-    ]
-  },
-  "Room14": {
-    "Description": "Do a math problem",
-    "Adjacent": [
-      15,
-      13,
-      1,
-      9
-    ]
-  },
-  "Room15": {
-    "Description": "Tell me your name",
-    "Adjacent": [
-      10,
-      13,
-      22,
-      6
-    ]
-  },
-  "Room16": {
-    "Description": "Swift-Footed Achilles",
-    "Adjacent": [
-      2,
-      9,
-      4,
-      7
-    ]
-  },
-  "Room17": {
-    "Description": "Do a math problem",
-    "Adjacent": [
-      15,
-      15,
-      2,
-      19
-    ]
-  },
-  "Room18": {
-    "Description": "A giant statue",
-    "Adjacent": [
-      20,
-      21,
-      5,
-      0
-    ]
-  },
-  "Room19": {
-    "Description": "Do a math problem",
-    "Adjacent": [
-      4,
-      13,
-      6,
-      1
-    ]
-  },
-  "Room20": {
-    "Description": "Agamemnon, Lion of Mycenae",
-    "Adjacent": [
-      13,
-      15,
-      19,
-      0
-    ]
-  },
-  "Room21": {
-    "Description": "Do a math problem",
-    "Adjacent": [
-      21,
-      22,
-      21,
       21
     ]
   },
-  "Room22": {
-    "Description": "Do a math problem",
+  "Room1": {
+    "Description": "Memnon, Prince of Ethiopia",
     "Adjacent": [
-      5,
       2,
-      23,
+      0,
+      6,
+      19
+    ]
+  },
+  "Room2": {
+    "Description": "I took a pill in Ibiza",
+    "Adjacent": [
+      0,
+      15,
+      15,
+      16
+    ]
+  },
+  "Room3": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      6,
+      14,
+      5,
       20
+    ]
+  },
+  "Room4": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      24,
+      23,
+      18,
+      5
+    ]
+  },
+  "Room5": {
+    "Description": "Rocket Man",
+    "Adjacent": [
+      24,
+      10,
+      0,
+      8
+    ]
+  },
+  "Room6": {
+    "Description": "I took a pill in Ibiza",
+    "Adjacent": [
+      7,
+      19,
+      0,
+      1
+    ]
+  },
+  "Room7": {
+    "Description": "Tell me your name",
+    "Adjacent": [
+      19,
+      23,
+      3,
+      13
+    ]
+  },
+  "Room8": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      18,
+      16,
+      21,
+      17
+    ]
+  },
+  "Room9": {
+    "Description": "Swift-Footed Achilles",
+    "Adjacent": [
+      9,
+      15,
+      10,
+      10
+    ]
+  },
+  "Room10": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      14,
+      9,
+      13,
+      15
+    ]
+  },
+  "Room11": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      0,
+      18,
+      19,
+      20
+    ]
+  },
+  "Room12": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      3,
+      12,
+      21,
+      6
+    ]
+  },
+  "Room13": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      13,
+      17,
+      18,
+      12
+    ]
+  },
+  "Room14": {
+    "Description": "I took a pill in Ibiza",
+    "Adjacent": [
+      0,
+      9,
+      9,
+      3
+    ]
+  },
+  "Room15": {
+    "Description": "Memnon, Prince of Ethiopia",
+    "Adjacent": [
+      23,
+      11,
+      15,
+      24
+    ]
+  },
+  "Room16": {
+    "Description": "Rhesus of Thrace",
+    "Adjacent": [
+      15,
+      4,
+      21,
+      13
+    ]
+  },
+  "Room17": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      23,
+      11,
+      3,
+      20
+    ]
+  },
+  "Room18": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      20,
+      14,
+      15,
+      10
+    ]
+  },
+  "Room19": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      3,
+      11,
+      4,
+      15
+    ]
+  },
+  "Room20": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      7,
+      22,
+      12,
+      23
+    ]
+  },
+  "Room21": {
+    "Description": "Nothing to be found here",
+    "Adjacent": [
+      2,
+      21,
+      9,
+      23
+    ]
+  },
+  "Room22": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      13,
+      11,
+      1,
+      1
     ]
   },
   "Room23": {
     "Description": "Tell me your name",
     "Adjacent": [
-      23,
-      14,
-      9,
-      21
+      5,
+      3,
+      0,
+      13
     ]
   },
   "Room24": {
-    "Description": "A giant statue",
+    "Description": "Rocket Man",
     "Adjacent": [
-      2,
-      0,
-      13,
-      2
+      4,
+      18,
+      18,
+      10
     ]
   }
 }

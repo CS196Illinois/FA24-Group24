@@ -27,7 +27,8 @@ namespace UIEnd
                    "EXPLORE - Explore the room\n" +
                    "ECHO - Echo the message\n" +
                    "SUM - Return the sum of the three numbers\n" +
-                   "HELLO - Hellooooooooooooooooo!";
+                   "HELLO - Hellooooooooooooooooo!\n" + 
+                   "GENERATE - Generate new Map";
         }
 
         // Processes user commands and invokes corresponding actions

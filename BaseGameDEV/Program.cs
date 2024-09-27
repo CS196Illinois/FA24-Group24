@@ -1,13 +1,14 @@
 ﻿using System;
 using UIEnd;
-using MapEnd;
+using minigame;
+using System.Reflection;
 
 namespace RPGGame
 {    
     class Program    
     {
         static void Main(string[] args)         
-        {    
+        {           
             Console.WriteLine("Welcome to our game! Type 'quit' to exit or 'help' for available commands.");
             UI gameUI = new UI();
             while (true) 
@@ -16,6 +17,8 @@ namespace RPGGame
                 string command = Console.ReadLine();
                 
                 if (command.Equals("quit")) {
+                    //Some sort of save here probably
+
                     break;
                 } 
                 else if (command.Equals("help")) {

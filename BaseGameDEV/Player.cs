@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using MapEnd;
+using minigame;
 
 namespace PlayerEnd
 {
@@ -27,6 +28,7 @@ namespace PlayerEnd
     {
         private Player player; 
         private MapAction mymap;
+        
 
         public PlayerAction(Player inputPlayer) {
             player = inputPlayer;
@@ -60,7 +62,7 @@ namespace PlayerEnd
         }  
 
         public string EXPLORE() {
-            return mymap.getDescription(player.RMNumber);
+            return mymap.getDescription(player.RMNumber);       
         }
 
         public string ECHO(string subject) {
@@ -73,6 +75,16 @@ namespace PlayerEnd
 
         public string HELLO() {
             return "Hello";
+        }
+
+        public string EVALUATE() {
+            minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber);
+            if (challenge.checkResult()) {
+                return "Good job, you may continue.";
+            } else {
+                player.RMNumber = 0;
+                return "Back to the beginning";
+            }
         }
 
         //GENERATE --> MapAction Generate --> Map GenerateMap
