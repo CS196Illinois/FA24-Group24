@@ -8,31 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\42929\\.nuget\\packages\\": {},
-    "D:\\Program Files\\Microsoft Visual Studio\\Shared tools & SDK\\NuGetPackages": {}
+    "/Users/ethnm/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\42929\\FA24-Group24\\BaseGameDEV\\BaseGameDEV.csproj",
+      "projectUniqueName": "/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/BaseGameDEV.csproj",
       "projectName": "BaseGameDEV",
-      "projectPath": "C:\\Users\\42929\\FA24-Group24\\BaseGameDEV\\BaseGameDEV.csproj",
-      "packagesPath": "C:\\Users\\42929\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\42929\\FA24-Group24\\BaseGameDEV\\obj\\",
+      "projectPath": "/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/BaseGameDEV.csproj",
+      "packagesPath": "/Users/ethnm/.nuget/packages/",
+      "outputPath": "/Users/ethnm/mycode/cs124hsrc/FA24-Group24/BaseGameDEV/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files\\Microsoft Visual Studio\\Shared tools & SDK\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\42929\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/ethnm/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -71,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
