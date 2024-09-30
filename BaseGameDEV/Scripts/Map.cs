@@ -15,7 +15,7 @@ namespace MapEnd
             public int[] Adjacent {get; set;}
         }
  
-        static string filepath = "map.json"; //Address 
+        static string filepath = "Saves/map.json"; //Address 
         public Dictionary<int, string> mapInfo = new Dictionary<int, string> // Current possible room state
         {
             [1] = "DiceRoll",
