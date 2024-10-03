@@ -1,0 +1,227 @@
+{
+  "Room0": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      5,
+      0,
+      0,
+      1
+    ]
+  },
+  "Room1": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      6,
+      0,
+      0,
+      2
+    ]
+  },
+  "Room2": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      7,
+      0,
+      1,
+      3
+    ]
+  },
+  "Room3": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      8,
+      0,
+      2,
+      4
+    ]
+  },
+  "Room4": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      9,
+      0,
+      3,
+      5
+    ]
+  },
+  "Room5": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      10,
+      0,
+      4,
+      6
+    ]
+  },
+  "Room6": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      11,
+      1,
+      5,
+      7
+    ]
+  },
+  "Room7": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      12,
+      2,
+      6,
+      8
+    ]
+  },
+  "Room8": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      13,
+      3,
+      7,
+      9
+    ]
+  },
+  "Room9": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      14,
+      4,
+      8,
+      10
+    ]
+  },
+  "Room10": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      15,
+      5,
+      9,
+      11
+    ]
+  },
+  "Room11": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      16,
+      6,
+      10,
+      12
+    ]
+  },
+  "Room12": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      17,
+      7,
+      11,
+      13
+    ]
+  },
+  "Room13": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      18,
+      8,
+      12,
+      14
+    ]
+  },
+  "Room14": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      19,
+      9,
+      13,
+      15
+    ]
+  },
+  "Room15": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      20,
+      10,
+      14,
+      16
+    ]
+  },
+  "Room16": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      21,
+      11,
+      15,
+      17
+    ]
+  },
+  "Room17": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      22,
+      12,
+      16,
+      18
+    ]
+  },
+  "Room18": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      23,
+      13,
+      17,
+      19
+    ]
+  },
+  "Room19": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      24,
+      14,
+      18,
+      20
+    ]
+  },
+  "Room20": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      24,
+      15,
+      19,
+      21
+    ]
+  },
+  "Room21": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      24,
+      16,
+      20,
+      22
+    ]
+  },
+  "Room22": {
+    "Description": "DiceRoll",
+    "Adjacent": [
+      24,
+      17,
+      21,
+      23
+    ]
+  },
+  "Room23": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      24,
+      18,
+      22,
+      24
+    ]
+  },
+  "Room24": {
+    "Description": "MathQuestion",
+    "Adjacent": [
+      24,
+      19,
+      23,
+      24
+    ]
+  }
+}
