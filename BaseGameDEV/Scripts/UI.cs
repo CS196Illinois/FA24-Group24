@@ -8,21 +8,20 @@ namespace UIEnd
     class UI
     {
         private PlayerAction playerAction {get; set;} 
-        private Player usr = new Player();
-
         public UI() {
-            playerAction = new PlayerAction(usr);    
+            playerAction = new PlayerAction();    
         }   
 
         // Returns a list of available commands and their effects
         public string GetHelp(){
-            return "Available Commands:\n" +
+            return "Player Commands:\n" +
                    "SETNAME - Set player's name\n" +
                    "GETNAME - Get player's name\n" +
                    "UP - Move up\n" +
                    "DOWN - Move down\n" +
                    "LEFT - Move left\n" +
                    "RIGHT - Move right\n" +
+                   "Developer Commands: \n" +
                    "GETRM - Get current room\n" +
                    "EXPLORE - Explore the room\n" +
                    "ECHO - Echo the message\n" +
@@ -58,6 +57,10 @@ namespace UIEnd
             }
          
             return response;
+        }
+
+        public void Save() {
+            playerAction.__save__();
         }
     } 
 }

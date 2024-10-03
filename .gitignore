@@ -1,2 +1,8 @@
-.DS_Store
-*/Debug
+# Ignore the Directory
+bin/
+obj/
+
+# Ignore the file
+*.csproj
+*.sln
+
