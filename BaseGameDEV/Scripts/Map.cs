@@ -35,6 +35,7 @@ namespace MapEnd
         public void LoadMap() {  //Load map in json.map into Rooms...
             string e = File.ReadAllText(filepath);
             Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(e);
+            
         }
 
         /*

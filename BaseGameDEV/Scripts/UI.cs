@@ -8,22 +8,20 @@ namespace UIEnd
     class UI
     {
         private PlayerAction playerAction {get; set;} 
-        
-        string filepath = "Saves/characters.json";
-
         public UI() {
             playerAction = new PlayerAction();    
         }   
 
         // Returns a list of available commands and their effects
         public string GetHelp(){
-            return "Available Commands:\n" +
+            return "Player Commands:\n" +
                    "SETNAME - Set player's name\n" +
                    "GETNAME - Get player's name\n" +
                    "UP - Move up\n" +
                    "DOWN - Move down\n" +
                    "LEFT - Move left\n" +
                    "RIGHT - Move right\n" +
+                   "Developer Commands: \n" +
                    "GETRM - Get current room\n" +
                    "EXPLORE - Explore the room\n" +
                    "ECHO - Echo the message\n" +

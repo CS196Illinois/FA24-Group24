@@ -12,28 +12,30 @@ namespace PlayerEnd
 {
     class Player
     {        
-        public class PlayerModel       
+        public class PlayerModel //Data Model that contains all character-related information and json format 
         {
             public string? Name {get; set;}
             public Dictionary<string, int>? Stats {get; set;}
             public int RoomNumber {get; set;}
         }
-        
-        
-        //This currently represents the player's current position as a room number, 
-        //the entire room dictionary is stored in MapEnd, and accessed via calling mapaction methods and inputting said rmnumber to evaluate
+    
+        //Loading in Player
         string filepath = "Saves/characters.json";
         public string? name;
         public Dictionary<string, int>? stats;
         public int RMNumber;
         public void LoadPlayer() {
             string e = File.ReadAllText(filepath);
-            PlayerModel temp = JsonSerializer.Deserialize<PlayerModel>(e);
+            PlayerModel? temp = JsonSerializer.Deserialize<PlayerModel>(e);
+            if (temp == null) {
+                throw new Exception("Error loading in player info.");
+            }
             name = temp.Name;
             stats = temp.Stats;
             RMNumber = temp.RoomNumber;
         }
 
+        //Save PlayerInfor into characters.json
         public void SavePlayer() {
             File.WriteAllText(filepath, JsonSerializer.Serialize(new PlayerModel(){Name=name, Stats=stats, RoomNumber=RMNumber}, new JsonSerializerOptions { WriteIndented = true }));
         }
@@ -49,6 +51,7 @@ namespace PlayerEnd
             name = inputName;
         }
 
+        //Constructor that automatically load player when new session initiates
         public Player() {
             LoadPlayer();
         }
@@ -65,6 +68,8 @@ namespace PlayerEnd
             mymap = new MapAction();
         }
 
+
+        //End-User Actions
         public void SETNAME(string name) {
             player.SetName(name);
         }
@@ -75,16 +80,31 @@ namespace PlayerEnd
 
         public void UP() {
             player.RMNumber = mymap.getNext(player.RMNumber, "UP");
+            Console.WriteLine(GETRM());
+            Console.WriteLine(EXPLORE());
+            Console.WriteLine(EVALUATE());
         }
         public void DOWN() {
             player.RMNumber = mymap.getNext(player.RMNumber, "DOWN");
+            Console.WriteLine(GETRM());
+            Console.WriteLine(EXPLORE());
+            Console.WriteLine(EVALUATE());
         }
         public void LEFT() {
             player.RMNumber = mymap.getNext(player.RMNumber, "LEFT");
+            Console.WriteLine(GETRM());
+            Console.WriteLine(EXPLORE());
+            Console.WriteLine(EVALUATE());
         }
         public void RIGHT() {
             player.RMNumber = mymap.getNext(player.RMNumber, "RIGHT");
+            Console.WriteLine(GETRM());
+            Console.WriteLine(EXPLORE());
+            Console.WriteLine(EVALUATE());
         }
+
+
+        //Backend Actions
 
         public string GETRM() {
             return $"Room {player.RMNumber}";
@@ -122,6 +142,8 @@ namespace PlayerEnd
             return "New Map Generated";
         }
 
+        //UI save command --> __save__ which saves both map via MapAction Save() and player via Player SavePlayer()
+        //Not callable from UI process() since not capitalized 
         public void __save__() {
             mymap.Save();
             player.SavePlayer();

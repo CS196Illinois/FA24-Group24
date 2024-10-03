@@ -3,18 +3,18 @@ using System.Net;
 using System.Reflection;
 namespace minigame
 {
-    class minigame 
+    class Minigame 
     {
         Random random = new Random();
         private int diff;
-        public minigame(int idiff){ 
+        public Minigame(int idiff){ 
             diff = idiff;
         }
         public bool MathQuestion(){
-            int a = random.Next(-(int) Math.Pow(2, diff), (int) Math.Pow(2, diff));
-            int b = random.Next(-(int) Math.Pow(2, diff), (int) Math.Pow(2, diff));
-            Console.WriteLine($"What is {a} * {b}");
-            if (Console.ReadLine() == $"{a * b}") {
+            int a = random.Next(-diff, diff);
+            int b = random.Next(-diff, diff);
+            Console.WriteLine($"What is {a} + {b}");
+            if (Console.ReadLine() == $"{a + b}") {
                 return true;
             }
             return false;
@@ -36,11 +36,11 @@ namespace minigame
     class minigameWrapper
     {
         Random random = new Random();
-        minigame current;
+        Minigame current;
         MethodInfo methodInfo;
         public minigameWrapper(string command, int diff) {
-            current = new minigame(diff);
-            methodInfo = typeof(minigame).GetMethod(command);
+            current = new Minigame(diff);
+            methodInfo = typeof(Minigame).GetMethod(command);
         }
 
         //Work In Progress
