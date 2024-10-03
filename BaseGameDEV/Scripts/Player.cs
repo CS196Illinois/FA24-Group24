@@ -142,6 +142,12 @@ namespace PlayerEnd
             return "New Map Generated";
         }
 
+        //GENERATEN --> MapAction GenerateN --> Map GenerateNormalMap
+        public string GENERATEN() {
+            mymap.GenerateN();
+            return "New Map Generated";
+        }
+
         //UI save command --> __save__ which saves both map via MapAction Save() and player via Player SavePlayer()
         //Not callable from UI process() since not capitalized 
         public void __save__() {

@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 using minigame;
+using System.ComponentModel;
 
 
 
@@ -74,6 +75,19 @@ namespace MapEnd
             LoadMap(); //Reload the map
             return "Completed";
         }  
+        public string GenerateNormalMap() {
+            File.WriteAllText(filepath, ""); //Clear the file
+            //Prep the list of rooms
+            Dictionary<string, Room> temp = new Dictionary<string, Room>();
+            Random random = new Random(); //Randomization
+            for (int i = 0; i < 25; i++) {    
+                //Add 25 random rooms, left is -1, right is +1, down is -5, up is +5
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Adjacent = [Math.Min(i + 5, 24), Math.Max(i - 5, 0), Math.Max(i - 1, 0), Math.Min(i + 1, 24)]});
+            }  
+            File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
+            LoadMap(); //Reload the map
+            return "Completed";
+        }  
 
         public void SaveMap() {
             File.WriteAllText(filepath, JsonSerializer.Serialize(Rooms, new JsonSerializerOptions { WriteIndented = true }));
@@ -116,6 +130,9 @@ namespace MapEnd
         //Call the map level function generatemap
         public void Generate() {
             current.GenerateMap();
+        }  
+        public void GenerateN() {
+            current.GenerateNormalMap();
         }  
 
         public void Save() {
