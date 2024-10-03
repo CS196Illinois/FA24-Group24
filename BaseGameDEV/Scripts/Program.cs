@@ -18,11 +18,15 @@ namespace RPGGame
                 
                 if (command.Equals("quit")) {
                     //Some sort of save here probably
-
+                    gameUI.Save();
                     break;
                 } 
                 else if (command.Equals("help")) {
                     Console.WriteLine(gameUI.GetHelp());
+                }
+                else if (command.Equals("save")) {
+                    gameUI.Save();
+                    Console.WriteLine("Manual Save");
                 }
                 else {
                     string response = gameUI.Process(command);

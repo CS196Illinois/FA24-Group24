@@ -7,7 +7,7 @@ namespace PlayerEnd
 {
     class Player
     {
-        public string? name; 
+        public string name = ""; 
         public int RMNumber; 
         //This currently represents the player's current position as a room number, 
         //the entire room dictionary is stored in MapEnd, and accessed via calling mapaction methods and inputting said rmnumber to evaluate
@@ -15,7 +15,11 @@ namespace PlayerEnd
 
         // Gets the player's name or prompts to set it if not set
         public string GetName() {
-            return name ?? "Set name first.";
+            if (name.Equals("")) {
+                return "Set name first.";
+            } else {
+                return name;
+            }
         }
 
         // Sets the player's name

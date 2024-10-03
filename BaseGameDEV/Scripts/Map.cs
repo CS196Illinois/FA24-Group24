@@ -15,10 +15,10 @@ namespace MapEnd
             public int[] Adjacent {get; set;}
         }
  
-        static string filepath = "map.json"; //Address 
+        static string filepath = "Saves/map.json"; //Address 
         public Dictionary<int, string> mapInfo = new Dictionary<int, string> // Current possible room state
         {
-            [1] = "Nothing to be found here",
+            [1] = "DiceRoll",
             [2] = "MathQuestion",
             [3] = "Tell me your name", 
             [4] = "A giant statue",
@@ -35,6 +35,7 @@ namespace MapEnd
         public void LoadMap() {  //Load map in json.map into Rooms...
             string e = File.ReadAllText(filepath);
             Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(e);
+            
         }
 
         /*
@@ -67,12 +68,17 @@ namespace MapEnd
             Random random = new Random(); //Randomization
             for (int i = 0; i < 25; i++) {    
                 //Add 25 random rooms, each with a random adjacent array leading to non-euclidean navigating
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 12)], Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map
             return "Completed";
         }  
+
+        public void SaveMap() {
+            File.WriteAllText(filepath, JsonSerializer.Serialize(Rooms, new JsonSerializerOptions { WriteIndented = true }));
+            LoadMap(); //Reload the Map
+        }
         
         //Constructor Check for map.json file
         public Map() {
@@ -111,5 +117,9 @@ namespace MapEnd
         public void Generate() {
             current.GenerateMap();
         }  
+
+        public void Save() {
+            current.SaveMap();
+        }
     }
 }
