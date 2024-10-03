@@ -8,10 +8,11 @@ namespace UIEnd
     class UI
     {
         private PlayerAction playerAction {get; set;} 
-        private Player usr = new Player();
+        
+        string filepath = "Saves/characters.json";
 
         public UI() {
-            playerAction = new PlayerAction(usr);    
+            playerAction = new PlayerAction();    
         }   
 
         // Returns a list of available commands and their effects
@@ -58,6 +59,10 @@ namespace UIEnd
             }
          
             return response;
+        }
+
+        public void Save() {
+            playerAction.__save__();
         }
     } 
 }

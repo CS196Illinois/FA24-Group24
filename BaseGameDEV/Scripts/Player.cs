@@ -1,16 +1,42 @@
 using System;
+using System.IO;
+using System.Text.Json;
 using System.ComponentModel;
 using MapEnd;
 using minigame;
+using System.Text.Json.Serialization;
+using System.Security.Cryptography.X509Certificates;
+using System.Runtime.InteropServices;
 
 namespace PlayerEnd
 {
     class Player
-    {
-        public string? name; 
-        public int RMNumber; 
+    {        
+        public class PlayerModel       
+        {
+            public string? Name {get; set;}
+            public Dictionary<string, int>? Stats {get; set;}
+            public int RoomNumber {get; set;}
+        }
+        
+        
         //This currently represents the player's current position as a room number, 
         //the entire room dictionary is stored in MapEnd, and accessed via calling mapaction methods and inputting said rmnumber to evaluate
+        string filepath = "Saves/characters.json";
+        public string? name;
+        public Dictionary<string, int>? stats;
+        public int RMNumber;
+        public void LoadPlayer() {
+            string e = File.ReadAllText(filepath);
+            PlayerModel temp = JsonSerializer.Deserialize<PlayerModel>(e);
+            name = temp.Name;
+            stats = temp.Stats;
+            RMNumber = temp.RoomNumber;
+        }
+
+        public void SavePlayer() {
+            File.WriteAllText(filepath, JsonSerializer.Serialize(new PlayerModel(){Name=name, Stats=stats, RoomNumber=RMNumber}, new JsonSerializerOptions { WriteIndented = true }));
+        }
 
 
         // Gets the player's name or prompts to set it if not set
@@ -22,6 +48,10 @@ namespace PlayerEnd
         public void SetName(string inputName) {
             name = inputName;
         }
+
+        public Player() {
+            LoadPlayer();
+        }
     }
 
     class PlayerAction 
@@ -30,10 +60,9 @@ namespace PlayerEnd
         private MapAction mymap;
         
 
-        public PlayerAction(Player inputPlayer) {
-            player = inputPlayer;
+        public PlayerAction() {
+            player = new Player();
             mymap = new MapAction();
-            player.RMNumber = 0;
         }
 
         public void SETNAME(string name) {
@@ -91,6 +120,11 @@ namespace PlayerEnd
         public string GENERATE() {
             mymap.Generate();
             return "New Map Generated";
+        }
+
+        public void __save__() {
+            mymap.Save();
+            player.SavePlayer();
         }
     }
 }

@@ -73,6 +73,11 @@ namespace MapEnd
             LoadMap(); //Reload the map
             return "Completed";
         }  
+
+        public void SaveMap() {
+            File.WriteAllText(filepath, JsonSerializer.Serialize(Rooms, new JsonSerializerOptions { WriteIndented = true }));
+            LoadMap(); //Reload the Map
+        }
         
         //Constructor Check for map.json file
         public Map() {
@@ -111,5 +116,9 @@ namespace MapEnd
         public void Generate() {
             current.GenerateMap();
         }  
+
+        public void Save() {
+            current.SaveMap();
+        }
     }
 }
