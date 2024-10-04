@@ -7,6 +7,8 @@ using minigame;
 using System.Text.Json.Serialization;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Data;
 
 namespace PlayerEnd
 {
@@ -21,8 +23,8 @@ namespace PlayerEnd
     
         //Loading in Player
         string filepath = "Saves/characters.json";
-        public string? name;
-        public Dictionary<string, int>? stats;
+        private string? name;
+        private Dictionary<string, int>? stats;
         public int RMNumber;
         public void LoadPlayer() {
             string e = File.ReadAllText(filepath);
@@ -41,15 +43,42 @@ namespace PlayerEnd
         }
 
 
-        // Gets the player's name or prompts to set it if not set
+        // Get & Set the player's name or prompts to set it if not set
         public string GetName() {
             return name ?? "Set name first.";
         }
 
-        // Sets the player's name
         public void SetName(string inputName) {
             name = inputName;
         }
+
+        // Get & Set the player's stats
+        public Dictionary<string, int> GetStat() {
+            return stats;
+        }
+
+        public int GetStat(string cat) {
+            if (stats.Keys.Contains(cat)) {
+                return stats[cat];
+            } else {
+                return -1;
+            }
+        }
+
+        public void SetStat(string cat, int val) {
+            if (stats.Keys.Contains(cat)) {
+                stats[cat] = val;
+            } else {
+                stats.Add(cat, val);
+            }
+        }
+        
+        public void AddStat(string cat, int val) {
+            if (stats.Keys.Contains(cat)) {
+                stats[cat] += val;
+            } 
+        }
+
 
         //Constructor that automatically load player when new session initiates
         public Player() {
@@ -78,6 +107,10 @@ namespace PlayerEnd
             return player.GetName();
         }
 
+        public string GETSTAT() {
+            return JsonSerializer.Serialize(player.GetStat());
+        }
+
         public void UP() {
             player.RMNumber = mymap.getNext(player.RMNumber, "UP");
             Console.WriteLine(GETRM());
@@ -104,8 +137,12 @@ namespace PlayerEnd
         }
 
 
-        //Backend Actions
+        //Backend Actions eventually change all reference to lowercase (or private) so user can't access
 
+        public void ADDSTAT(string stat, int increment) {
+            player.AddStat(stat.ToUpper(), increment);
+        }
+       
         public string GETRM() {
             return $"Room {player.RMNumber}";
         }  
