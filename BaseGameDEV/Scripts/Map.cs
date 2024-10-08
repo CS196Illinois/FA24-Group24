@@ -13,6 +13,7 @@ namespace MapEnd
     {
         public class Room {   //Model class that carries the information containing in each room / need to change access level tho
             public string Description {get; set;}
+            public bool Completed {get;set;}
             public int[] Adjacent {get; set;}
         }
  
@@ -45,16 +46,19 @@ namespace MapEnd
             "Room0" :    
             {
                 "Description" : "Nothing is here",
+                "Completed" : true,
                 "Adjacent" : [1, 0, 1, 2]
             },
             "Room1" : 
             {
                 "Description" : "Nothing is here",
+                "Completed" : false,
                 "Adjacent" : [1, 2, 2, 0]
             }, 
             "Room2" :
             {
                 "Description" : "Everything is here",
+                "Completed" : false,
                 "Adjacent" : [1, 0, 1, 2]
             }
         }
@@ -62,6 +66,52 @@ namespace MapEnd
         */
 
         //2D Array Maybe; make euclidean and playable
+
+
+        //Used to determine if a room logically connects or not
+        int RoomLogic(int origin, String movement) {
+            int ans = origin;
+            int test;
+            //If a room doesn't logically connect, the player will stay in the same room.
+            if (movement.Equals("U")) {
+                test = origin + 5;
+                if (test <= 24 && test >= 0) {
+                    ans = test;
+                }
+            } else if (movement.Equals("D")) {
+                test = origin - 5;
+                if (test <= 24 && test >= 0) {
+                    ans = test;
+                }
+                //Left and right stop the rooms from connecting when they're on opposite sides
+                //Since it's in a grid pattern, you can't move left from room 5 and can't move right from room 4
+            } else if (movement.Equals("L")) {
+                test = origin - 1;
+                if (origin % 5 != 0) {
+                    ans = test;
+                }
+            } else if (movement.Equals("R")) {
+                test = origin + 1;
+                if (origin % 5 != 4) {
+                    ans = test;
+                }
+            }
+            return ans;
+        }
+        public string GenerateNormalMap() {
+            File.WriteAllText(filepath, ""); //Clear the file
+            //Prep the list of rooms
+            Dictionary<string, Room> temp = new Dictionary<string, Room>();
+            Random random = new Random(); //Randomization
+            for (int i = 0; i < 25; i++) {    
+                //Add 25 random encounter rooms in a set order
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
+            }  
+            File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
+            LoadMap(); //Reload the map
+            return "Completed";
+        }  
+
         public string GenerateMap() {
             File.WriteAllText(filepath, ""); //Clear the file
             //Prep the list of rooms
@@ -69,20 +119,7 @@ namespace MapEnd
             Random random = new Random(); //Randomization
             for (int i = 0; i < 25; i++) {    
                 //Add 25 random rooms, each with a random adjacent array leading to non-euclidean navigating
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
-            }  
-            File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
-            LoadMap(); //Reload the map
-            return "Completed";
-        }  
-        public string GenerateNormalMap() {
-            File.WriteAllText(filepath, ""); //Clear the file
-            //Prep the list of rooms
-            Dictionary<string, Room> temp = new Dictionary<string, Room>();
-            Random random = new Random(); //Randomization
-            for (int i = 0; i < 25; i++) {    
-                //Add 25 random rooms, left is -1, right is +1, down is -5, up is +5
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Adjacent = [Math.Min(i + 5, 24), Math.Max(i - 5, 0), Math.Max(i - 1, 0), Math.Min(i + 1, 24)]});
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map
@@ -131,10 +168,9 @@ namespace MapEnd
         public void Generate() {
             current.GenerateMap();
         }  
-        public void GenerateN() {
+        public void GenerateNormal() {
             current.GenerateNormalMap();
         }  
-
         public void Save() {
             current.SaveMap();
         }

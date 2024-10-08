@@ -1,6 +1,7 @@
 {
   "Room0": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       5,
       0,
@@ -10,51 +11,57 @@
   },
   "Room1": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       6,
-      0,
+      1,
       0,
       2
     ]
   },
   "Room2": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       7,
-      0,
+      2,
       1,
       3
     ]
   },
   "Room3": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       8,
-      0,
+      3,
       2,
       4
     ]
   },
   "Room4": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       9,
-      0,
+      4,
       3,
-      5
+      4
     ]
   },
   "Room5": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       10,
       0,
-      4,
+      5,
       6
     ]
   },
   "Room6": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       11,
       1,
@@ -63,7 +70,8 @@
     ]
   },
   "Room7": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       12,
       2,
@@ -72,7 +80,8 @@
     ]
   },
   "Room8": {
-    "Description": "DiceRoll",
+    "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       13,
       3,
@@ -81,25 +90,28 @@
     ]
   },
   "Room9": {
-    "Description": "DiceRoll",
+    "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       14,
       4,
       8,
-      10
+      9
     ]
   },
   "Room10": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       15,
       5,
-      9,
+      10,
       11
     ]
   },
   "Room11": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       16,
       6,
@@ -108,7 +120,8 @@
     ]
   },
   "Room12": {
-    "Description": "DiceRoll",
+    "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       17,
       7,
@@ -117,7 +130,8 @@
     ]
   },
   "Room13": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       18,
       8,
@@ -126,25 +140,28 @@
     ]
   },
   "Room14": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       19,
       9,
       13,
-      15
+      14
     ]
   },
   "Room15": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       20,
       10,
-      14,
+      15,
       16
     ]
   },
   "Room16": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       21,
       11,
@@ -154,6 +171,7 @@
   },
   "Room17": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
       22,
       12,
@@ -163,6 +181,7 @@
   },
   "Room18": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       23,
       13,
@@ -172,51 +191,57 @@
   },
   "Room19": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       24,
       14,
       18,
-      20
+      19
     ]
   },
   "Room20": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      24,
+      20,
       15,
-      19,
+      20,
       21
     ]
   },
   "Room21": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      24,
+      21,
       16,
       20,
       22
     ]
   },
   "Room22": {
-    "Description": "DiceRoll",
+    "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      24,
+      22,
       17,
       21,
       23
     ]
   },
   "Room23": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      24,
+      23,
       18,
       22,
       24
     ]
   },
   "Room24": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
       24,
       19,
