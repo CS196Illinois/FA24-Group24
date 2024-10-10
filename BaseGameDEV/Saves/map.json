@@ -1,227 +1,252 @@
 {
   "Room0": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      24,
-      2,
-      2,
-      14
+      5,
+      0,
+      0,
+      1
     ]
   },
   "Room1": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      5,
-      4,
-      21,
-      5
+      6,
+      1,
+      0,
+      2
     ]
   },
   "Room2": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      17,
+      7,
       2,
-      14,
-      1
+      1,
+      3
     ]
   },
   "Room3": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      18,
       8,
       3,
-      10
+      2,
+      4
     ]
   },
   "Room4": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      18,
-      18,
-      8,
-      12
+      9,
+      4,
+      3,
+      4
     ]
   },
   "Room5": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      18,
-      20,
-      20,
-      21
+      10,
+      0,
+      5,
+      6
     ]
   },
   "Room6": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      5,
+      11,
       1,
-      17,
-      6
+      5,
+      7
     ]
   },
   "Room7": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      16,
-      0,
-      20,
-      11
+      12,
+      2,
+      6,
+      8
     ]
   },
   "Room8": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      11,
-      20,
-      14,
-      10
+      13,
+      3,
+      7,
+      9
     ]
   },
   "Room9": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      15,
+      14,
       4,
-      15,
-      16
+      8,
+      9
     ]
   },
   "Room10": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      17,
-      7,
       15,
-      4
+      5,
+      10,
+      11
     ]
   },
   "Room11": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      9,
-      11,
-      17,
+      16,
+      6,
+      10,
       12
     ]
   },
   "Room12": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      2,
-      19,
-      6,
-      10
+      17,
+      7,
+      11,
+      13
     ]
   },
   "Room13": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      16,
-      24,
+      18,
+      8,
       12,
-      8
+      14
     ]
   },
   "Room14": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
+      19,
+      9,
       13,
-      1,
-      20,
-      3
+      14
     ]
   },
   "Room15": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      7,
-      24,
-      8,
-      3
+      20,
+      10,
+      15,
+      16
     ]
   },
   "Room16": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      10,
+      21,
       11,
-      8,
-      2
+      15,
+      17
     ]
   },
   "Room17": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      5,
-      11,
-      17,
-      23
+      22,
+      12,
+      16,
+      18
     ]
   },
   "Room18": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      0,
-      24,
-      16,
-      5
+      23,
+      13,
+      17,
+      19
     ]
   },
   "Room19": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
+      24,
       14,
-      1,
       18,
-      3
+      19
     ]
   },
   "Room20": {
     "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      19,
-      24,
-      4,
-      24
+      20,
+      15,
+      20,
+      21
     ]
   },
   "Room21": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      1,
+      21,
       16,
-      2,
-      16
+      20,
+      22
     ]
   },
   "Room22": {
     "Description": "MathQuestion",
+    "Completed": false,
     "Adjacent": [
-      14,
-      18,
-      24,
+      22,
+      17,
+      21,
       23
     ]
   },
   "Room23": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      6,
-      4,
-      16,
-      5
+      23,
+      18,
+      22,
+      24
     ]
   },
   "Room24": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
+    "Completed": false,
     "Adjacent": [
-      0,
-      16,
-      13,
-      11
+      24,
+      19,
+      23,
+      24
     ]
   }
 }

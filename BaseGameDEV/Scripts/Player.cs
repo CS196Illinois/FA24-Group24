@@ -171,6 +171,12 @@ namespace PlayerEnd
         //GENERATE --> MapAction Generate --> Map GenerateMap
         public string GENERATE() {
             mymap.Generate();
+            return "New Random Map Generated";
+        }
+
+        //GENERATEN --> MapAction GenerateNormal --> Map GenerateNormalMap
+        public string GENERATEN() {
+            mymap.GenerateNormal();
             return "New Map Generated";
         }
 
