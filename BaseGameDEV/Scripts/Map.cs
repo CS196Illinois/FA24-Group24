@@ -35,8 +35,7 @@ namespace MapEnd
         public Dictionary<string, Room> Rooms = new Dictionary<string, Room>(); //The local map storage while program is running.
         public void LoadMap() {  //Load map in json.map into Rooms...
             string e = File.ReadAllText(filepath);
-            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(e);
-            
+            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(e);         
         }
 
         /*
@@ -162,6 +161,20 @@ namespace MapEnd
                 return current.Rooms[$"Room{RMNumber}"].Adjacent[3];
             return RMNumber;
         }
+
+        //Function that check/set if map room is completed
+        public Boolean getStatus(int RMNumber) {
+            if (current.Rooms[$"Room{RMNumber}"].Completed) {
+                return true;
+            }
+            return false;
+        }
+
+        public void setStatusDone(int RMNumber) {
+            current.Rooms[$"Room{RMNumber}"].Completed = true;
+            current.SaveMap(); //Autosaves this
+        }
+
 
         //Call the map level function generatemap
         public void Generate() {
