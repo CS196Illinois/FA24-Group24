@@ -107,28 +107,40 @@ namespace PlayerEnd
         }
 
         public void UP() {
+            if (!mymap.getStatus(player.RMNumber)) {  //Just check to see if the room is completed
+                Console.WriteLine("Complete this room first!");
+            } else {
             player.RMNumber = mymap.getNext(player.RMNumber, "UP");
             Console.WriteLine(GETRM());
             Console.WriteLine(EXPLORE());
-            Console.WriteLine(EVALUATE());
+            }
         }
         public void DOWN() {
+            if (!mymap.getStatus(player.RMNumber)) {
+                Console.WriteLine("Complete this room first!");
+            } else {
             player.RMNumber = mymap.getNext(player.RMNumber, "DOWN");
             Console.WriteLine(GETRM());
             Console.WriteLine(EXPLORE());
-            Console.WriteLine(EVALUATE());
+            }
         }
         public void LEFT() {
+            if (!mymap.getStatus(player.RMNumber)) {
+                Console.WriteLine("Complete this room first!");
+            } else {
             player.RMNumber = mymap.getNext(player.RMNumber, "LEFT");
             Console.WriteLine(GETRM());
             Console.WriteLine(EXPLORE());
-            Console.WriteLine(EVALUATE());
+            }
         }
         public void RIGHT() {
+            if (!mymap.getStatus(player.RMNumber)) {
+                Console.WriteLine("Complete this room first!");
+            } else {
             player.RMNumber = mymap.getNext(player.RMNumber, "RIGHT");
             Console.WriteLine(GETRM());
             Console.WriteLine(EXPLORE());
-            Console.WriteLine(EVALUATE());
+            }
         }
 
 
@@ -159,17 +171,23 @@ namespace PlayerEnd
         }
 
         public string EVALUATE() {
-            minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber);
-            if (challenge.checkResult()) {
-                return "Good job, you may continue.";
+            if (!mymap.getStatus(player.RMNumber)) {
+                minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber);
+                if (challenge.checkResult()) {
+                    mymap.setStatusDone(player.RMNumber); //Update room to be completed
+                    return "Good job, you may continue.";
+                } else {
+                    player.RMNumber = 0;
+                    return "Back to the beginning";
+                }
             } else {
-                player.RMNumber = 0;
-                return "Back to the beginning";
+                return "You have completed this room before";
             }
+            
         }
 
-        //GENERATE --> MapAction Generate --> Map GenerateMap
-        public string GENERATE() {
+        //generate --> MapAction Generate --> Map GenerateMap Deprecated lowercase
+        public string generate() {
             mymap.Generate();
             return "New Random Map Generated";
         }
