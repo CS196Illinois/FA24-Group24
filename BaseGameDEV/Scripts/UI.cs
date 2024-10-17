@@ -27,7 +27,8 @@ namespace UIEnd
                    "ECHO - Echo the message\n" +
                    "SUM - Return the sum of the three numbers\n" +
                    "HELLO - Hellooooooooooooooooo!\n" + 
-                   "GENERATE - Generate new Map";
+                   "GENERATE - Generate new Map" +
+                   "GENERATEN - Generate a grid-based map";
         }
 
         // Processes user commands and invokes corresponding actions
