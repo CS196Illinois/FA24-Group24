@@ -1,5 +1,5 @@
 {
-  "Name": "Zach",
+  "Name": "wtf",
   "Stats": {
     "HP": 100,
     "EXP": 10000,
@@ -9,5 +9,5 @@
     "DEX": 5,
     "INT": 5
   },
-  "RoomNumber": 5
+  "RoomNumber": 10
 }

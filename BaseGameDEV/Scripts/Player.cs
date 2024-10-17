@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.IO;
 using System.Text.Json;
 using MapEnd;
@@ -13,14 +14,14 @@ namespace PlayerEnd
         {
             public string? Name {get; set;}
             public Dictionary<string, int>? Stats {get; set;}
-            public int RoomNumber {get; set;}
+            public Point RoomPos {get; set;}
         }
     
         //Loading in Player
-        string filepath = "Saves/characters.json";
+        string filepath = "C:\\Users\\zacha\\FA24-Group24-4\\BaseGameDEV\\Saves\\characters.json";
         private string? name;
         private Dictionary<string, int>? stats;
-        public int RMNumber;
+        public Point RMPos;
         public void LoadPlayer() {
             string e = File.ReadAllText(filepath);
             PlayerModel? temp = JsonSerializer.Deserialize<PlayerModel>(e);
@@ -29,12 +30,12 @@ namespace PlayerEnd
             }
             name = temp.Name;
             stats = temp.Stats;
-            RMNumber = temp.RoomNumber;
+            RMPos = temp.RoomPos;
         }
 
         //Save PlayerInfor into characters.json
         public void SavePlayer() {
-            File.WriteAllText(filepath, JsonSerializer.Serialize(new PlayerModel(){Name=name, Stats=stats, RoomNumber=RMNumber}, new JsonSerializerOptions { WriteIndented = true }));
+            File.WriteAllText(filepath, JsonSerializer.Serialize(new PlayerModel(){Name=name, Stats=stats, RoomPos = RMPos}, new JsonSerializerOptions { WriteIndented = true }));
         }
 
 
@@ -107,39 +108,47 @@ namespace PlayerEnd
         }
 
         public void UP() {
-            if (!mymap.getStatus(player.RMNumber)) {  //Just check to see if the room is completed
+            if (!mymap.getStatus(player.RMPos)) {  //Just check to see if the room is completed
                 Console.WriteLine("Complete this room first!");
-            } else {
-            player.RMNumber = mymap.getNext(player.RMNumber, "UP");
-            Console.WriteLine(GETRM());
+            } else if (mymap.canMove(player.RMPos, "UP")) {
+            player.RMPos = mymap.getNext(player.RMPos, "UP");
+            Console.WriteLine(GETPOS());
             Console.WriteLine(EXPLORE());
+            } else {
+                Console.WriteLine("No Room This Way!");
             }
         }
         public void DOWN() {
-            if (!mymap.getStatus(player.RMNumber)) {
+            if (!mymap.getStatus(player.RMPos)) {
                 Console.WriteLine("Complete this room first!");
-            } else {
-            player.RMNumber = mymap.getNext(player.RMNumber, "DOWN");
-            Console.WriteLine(GETRM());
+            } else  if (mymap.canMove(player.RMPos, "DOWN")) {
+            player.RMPos = mymap.getNext(player.RMPos, "DOWN");
+            Console.WriteLine(GETPOS());
             Console.WriteLine(EXPLORE());
+            } else {
+                Console.WriteLine("No Room This Way!");
             }
         }
         public void LEFT() {
-            if (!mymap.getStatus(player.RMNumber)) {
+            if (!mymap.getStatus(player.RMPos)) {
                 Console.WriteLine("Complete this room first!");
-            } else {
-            player.RMNumber = mymap.getNext(player.RMNumber, "LEFT");
-            Console.WriteLine(GETRM());
+            } else  if (mymap.canMove(player.RMPos, "LEFT")) {
+            player.RMPos = mymap.getNext(player.RMPos, "LEFT");
+            Console.WriteLine(GETPOS());
             Console.WriteLine(EXPLORE());
+            } else {
+                Console.WriteLine("No Room This Way!");
             }
         }
         public void RIGHT() {
-            if (!mymap.getStatus(player.RMNumber)) {
+            if (!mymap.getStatus(player.RMPos)) {
                 Console.WriteLine("Complete this room first!");
-            } else {
-            player.RMNumber = mymap.getNext(player.RMNumber, "RIGHT");
-            Console.WriteLine(GETRM());
+            } else  if (mymap.canMove(player.RMPos, "RIGHT")) {
+            player.RMPos = mymap.getNext(player.RMPos, "RIGHT");
+            Console.WriteLine(GETPOS());
             Console.WriteLine(EXPLORE());
+            } else {
+                Console.WriteLine("No Room This Way!");
             }
         }
 
@@ -150,12 +159,12 @@ namespace PlayerEnd
             player.AddStat(stat.ToUpper(), increment);
         }
        
-        public string GETRM() {
-            return $"Room {player.RMNumber}";
+        public string GETPOS() {
+            return $"Position: {player.RMPos.X}, {player.RMPos.Y}";
         }  
 
         public string EXPLORE() {
-            return mymap.getDescription(player.RMNumber);       
+            return mymap.getDescription(player.RMPos);       
         }
 
         public string ECHO(string subject) {
@@ -171,13 +180,13 @@ namespace PlayerEnd
         }
 
         public string EVALUATE() {
-            if (!mymap.getStatus(player.RMNumber)) {
-                minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber);
+            if (!mymap.getStatus(player.RMPos)) {
+                minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMPos), Math.Abs(player.RMPos.X) + Math.Abs(player.RMPos.Y));
                 if (challenge.checkResult()) {
-                    mymap.setStatusDone(player.RMNumber); //Update room to be completed
+                    mymap.setStatusDone(player.RMPos); //Update room to be completed
                     return "Good job, you may continue.";
                 } else {
-                    player.RMNumber = 0;
+                    player.RMPos = new Point(0, 0);
                     return "Back to the beginning";
                 }
             } else {

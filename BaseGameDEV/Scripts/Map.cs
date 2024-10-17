@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 using minigame;
+using System.Drawing;
 
 
 
@@ -14,9 +15,10 @@ namespace MapEnd
             public string Description {get; set;}
             public bool Completed {get;set;}
             public int[] Adjacent {get; set;}
+            public int Num {get; set;}
         }
- 
-        static string filepath = "Saves/map.json"; //Address 
+
+        static string filepath = "C:\\Users\\zacha\\FA24-Group24-4\\BaseGameDEV\\Saves\\map.json"; //Address 
         public Dictionary<int, string> mapInfo = new Dictionary<int, string> // Current possible room state
         {
             [1] = "DiceRoll",
@@ -67,6 +69,7 @@ namespace MapEnd
 
         //Size of rows in a map. Total rooms is just rows^2
         const int rowsize = 5;
+        const int numTiles = 25;
 
         //Used to determine if a room logically connects or not
         int RoomLogic(int origin, String movement) {
@@ -98,14 +101,50 @@ namespace MapEnd
             }
             return ans;
         }
+        //Generates a map with any specified number of tiles, with tiles placed randomly from 0, 0. Keys come in the form "Roomx,y" with x,y being the point of the room.
         public string GenerateNormalMap() {
             File.WriteAllText(filepath, ""); //Clear the file
             //Prep the list of rooms
             Dictionary<string, Room> temp = new Dictionary<string, Room>();
             Random random = new Random(); //Randomization
-            for (int i = 0; i < rowsize * rowsize; i++) {    
-                //Add rowsize^2 random encounter rooms in a set order
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
+            temp.Add("Room0,0", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [-1, -1, -1, -1], Num = 0}); //Add base room at  0,0
+            for (int i = 1; i < numTiles; i++) { //Add the remaining rooms, traveling in a random direction through already generated rooms until an available location is found.
+                Boolean isAdded = false;
+                Point point = new Point(0, 0);
+                while (!isAdded) {
+                    int r = (int) (4 * random.NextDouble());
+                    if (r == 0) {
+                        point.Y++;
+                    } else if (r == 1) {
+                        point.Y--;
+                    } else if (r == 2) {
+                        point.X--;
+                    } else {
+                        point.X++;
+                    }
+                    Room newOutput;
+                    Room adjacentOutput;
+                    if (!temp.TryGetValue($"Room{point.X}{point.Y}", out newOutput)) { //Updates adjacent information on both the new room and the rooms it connects to.
+                        temp.Add($"Room{point.X}{point.Y}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [-1, -1, -1, -1], Num = i});
+                        if (temp.TryGetValue($"Room{point.X}{point.Y + 1}", out adjacentOutput)) {
+                            temp[$"Room{point.X}{point.Y}"].Adjacent[0] = adjacentOutput.Num;
+                            adjacentOutput.Adjacent[1] = i;
+                        }
+                        if (temp.TryGetValue($"Room{point.X}{point.Y - 1}", out adjacentOutput)) {
+                            temp[$"Room{point.X}{point.Y}"].Adjacent[1] = adjacentOutput.Num;
+                            adjacentOutput.Adjacent[0] = i;
+                        }
+                        if (temp.TryGetValue($"Room{point.X - 1}{point.Y}", out adjacentOutput)) {
+                            temp[$"Room{point.X}{point.Y}"].Adjacent[2] = adjacentOutput.Num;
+                            adjacentOutput.Adjacent[3] = i;
+                        }
+                        if (temp.TryGetValue($"Room{point.X + 1}{point.Y}", out adjacentOutput)) {
+                            temp[$"Room{point.X}{point.Y}"].Adjacent[3] = adjacentOutput.Num;
+                            adjacentOutput.Adjacent[2] = i;
+                        }
+                        isAdded = true;
+                    }
+                }
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map
@@ -146,34 +185,75 @@ namespace MapEnd
         
         Map current = new Map();
         
-        //Gets the description of the room that the player is in, the RMNumber pointer however is in class player
-        public string getDescription(int RMNumber) { 
-            return current.Rooms[$"Room{RMNumber}"].Description;
+        //Gets the description of the room that the player is in, the RMPos pointer however is in class player
+        public string getDescription(Point RMPos) { 
+            return current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Description;
         }  
-
-        //Function that returns the RmNumber according to the adjacent integer array in each room and user command. 
-        public int getNext(int RMNumber, string direction) {
+        //Function that returns the RMPos in the specified direction. Must test if room exists first with canMove or code breaks.
+        public Point getNext(Point RMPos, string direction) {
             if (direction == "UP") {
-                return current.Rooms[$"Room{RMNumber}"].Adjacent[0];
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[0] == -1) {
+                    return RMPos;
+                } else {
+                    return new Point(RMPos.X, RMPos.Y + 1);
+                }
             } else if (direction == "DOWN") {
-                return current.Rooms[$"Room{RMNumber}"].Adjacent[1];
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[1] == -1) {
+                    return RMPos;
+                } else {
+                    return new Point(RMPos.X, RMPos.Y - 1);
+                }
             } else if (direction == "LEFT") {
-                return current.Rooms[$"Room{RMNumber}"].Adjacent[2];
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[2] == -1) {
+                    return RMPos;
+                } else {
+                    return new Point(RMPos.X - 1, RMPos.Y);
+                }
             } else if (direction == "RIGHT")
-                return current.Rooms[$"Room{RMNumber}"].Adjacent[3];
-            return RMNumber;
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[3] == -1) {
+                    return RMPos;
+                } else {
+                    return new Point(RMPos.X + 1, RMPos.Y);
+                }
+            return RMPos;
         }
-
+        public Boolean canMove(Point RMPos, string direction) {
+            if (direction == "UP") {
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[0] == -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else if (direction == "DOWN") {
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[1] == -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else if (direction == "LEFT") {
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[2] == -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else if (direction == "RIGHT")
+                if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Adjacent[3] == -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            return false;
+        }
         //Function that check/set if map room is completed
-        public Boolean getStatus(int RMNumber) {
-            if (current.Rooms[$"Room{RMNumber}"].Completed) {
+        public Boolean getStatus(Point RMPos) {
+            if (current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Completed) {
                 return true;
             }
             return false;
         }
 
-        public void setStatusDone(int RMNumber) {
-            current.Rooms[$"Room{RMNumber}"].Completed = true;
+        public void setStatusDone(Point RMPos) {
+            current.Rooms[$"Room{RMPos.X}{RMPos.Y}"].Completed = true;
             current.SaveMap(); //Autosaves this
         }
 
