@@ -38,9 +38,16 @@ namespace minigame
         Random random = new Random();
         Minigame current;
         MethodInfo methodInfo;
-        public minigameWrapper(string command, int diff) {
+        public minigameWrapper(int diff) {
+            string minigame = "";
+            Random random = new Random();
+            if (random.Next(0, 2) == 0) {
+                minigame = "DiceRoll";
+            } else {
+                minigame = "MathQuestion";
+            }
             current = new Minigame(diff);
-            methodInfo = typeof(Minigame).GetMethod(command);
+            methodInfo = typeof(Minigame).GetMethod(minigame);
         }
 
         //Work In Progress

@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Reflection.Metadata.Ecma335;
 using System.Text.Json;
 using MapEnd;
 using minigame;
@@ -33,7 +34,7 @@ namespace PlayerEnd
             RMPos = temp.RoomPos;
         }
 
-        //Save PlayerInfor into characters.json
+        //Save PlayerInfo into characters.json
         public void SavePlayer() {
             File.WriteAllText(filepath, JsonSerializer.Serialize(new PlayerModel(){Name=name, Stats=stats, RoomPos = RMPos}, new JsonSerializerOptions { WriteIndented = true }));
         }
@@ -60,6 +61,9 @@ namespace PlayerEnd
                 return -1;
             }
         }
+        public Dictionary<string, int> GetStats() {
+            return stats;
+        }
 
         public void SetStat(string cat, int val) {
             if (stats.Keys.Contains(cat)) {
@@ -73,6 +77,46 @@ namespace PlayerEnd
             if (stats.Keys.Contains(cat)) {
                 stats[cat] += val;
             } 
+        }
+        //Gives a player a +10 boost in a random stat, 1 in 4 chance of player being able to pick the stat, 1 in 4 chance of boost being +15 instead.
+        public string CollectItem() {
+            Random random = new Random();
+            int r = random.Next(0, 16);
+            int toAdd = 10;
+            if (r % 4 == 0) {
+                toAdd += 5;
+            }
+            if (r <= 3) {
+                Console.WriteLine("Boost item: select which stat to improve:\nATK for Attack\nDEF for Defense\nSPD for Speed\nDEX for Dexterity\nINT for Intelligence");
+                Boolean isDone = false;
+                //User could input HP or EXP, causing unintended boosts. May have to make health and experience seperate from stats.
+                String stat = Console.ReadLine().ToUpper().Trim();
+                while (!isDone) {
+                    if (stats.TryGetValue(stat, out int num)) {
+                        stats[stat] += toAdd;
+                        isDone = true;
+                        return toAdd + " was added to " + stat + ".";
+                    } else {
+                        Console.WriteLine("Enter a valid three-letter stat code");
+                    }
+                }
+            } else {
+                string stat = stats.Keys.ToArray()[random.Next(2, 7)];
+                stats[stat] += toAdd;
+                return toAdd + " was added to " + stat + ".";
+            }
+            return "Error";
+        }
+        public void ResetStats() {
+            stats = new Dictionary<string, int> {
+                ["HP"] =  100,
+                ["EXP"] = 0,
+                ["ATK"] = 0,
+                ["DEF"] = 0,
+                ["SPD"] = 0,
+                ["DEX"] = 0,
+                ["INT"] = 0,
+            };
         }
 
 
@@ -181,13 +225,23 @@ namespace PlayerEnd
 
         public string EVALUATE() {
             if (!mymap.getStatus(player.RMPos)) {
-                minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMPos), Math.Abs(player.RMPos.X) + Math.Abs(player.RMPos.Y));
-                if (challenge.checkResult()) {
-                    mymap.setStatusDone(player.RMPos); //Update room to be completed
-                    return "Good job, you may continue.";
+                if (mymap.getDescription(player.RMPos).Equals("Minigame")) { //tests if room is a minigame
+                    minigameWrapper challenge = new minigameWrapper(Math.Abs(player.RMPos.X) + Math.Abs(player.RMPos.Y));
+                    if (challenge.checkResult()) {
+                        mymap.setStatusDone(player.RMPos); //Update room to be completed
+                        player.AddStat("EXP", 100);
+                        return "Good job, you may continue.";
+                    } else {
+                        player.RMPos = new Point(0, 0);
+                        return "Back to the beginning";
+                    }
+                } else if (mymap.getDescription(player.RMPos).Equals("Item")) { //tests if room is an item
+                    mymap.setStatusDone(player.RMPos);
+                    player.AddStat("EXP", 50);
+                    return player.CollectItem();
                 } else {
-                    player.RMPos = new Point(0, 0);
-                    return "Back to the beginning";
+                    mymap.setStatusDone(player.RMPos);
+                    return "Empty, Key, and Combat rooms still in development, you may continue.";
                 }
             } else {
                 return "You have completed this room before";
@@ -205,6 +259,13 @@ namespace PlayerEnd
         public string GENERATEN() {
             mymap.GenerateNormal();
             return "New Map Generated";
+        }
+        //Generate new map, return player to first square, reset stats and room progress
+        public string RESET() {
+            mymap.GenerateNormal();
+            player.RMPos = new Point(0, 0);
+            player.ResetStats();
+            return "Game Reset";
         }
 
         //UI save command --> __save__ which saves both map via MapAction Save() and player via Player SavePlayer()
