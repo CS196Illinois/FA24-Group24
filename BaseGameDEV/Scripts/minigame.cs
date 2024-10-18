@@ -154,7 +154,6 @@ namespace minigame
           }
           Console.WriteLine("Demon is " + (Math.Abs(posx - demnx)) +  " tiles away horizontally and " + (Math.Abs(posy - demny)) + " tiles away vertically");
     }
-         return true;
 }
 
     }
