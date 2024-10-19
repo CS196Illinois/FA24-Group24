@@ -42,12 +42,17 @@ namespace minigame
     Console.WriteLine("Welcome to the Maze! In this place a demon lurks. Find the sword and slay the demon, before the demon catches you!");
     for(int i = 0; i < 8; i++) {
       for(int j = 0; j < 8; j++) {
+          if(i == posy && j == posx){
+          x[posx,posy] = "x";
+          Console.Write(x[j,i] + " ");
+          continue;
+        }
         x[j,i] = "o";
         Console.Write(x[j,i] + " ");
       }
       Console.WriteLine();
     }
-    x[posx,posy] = "x";
+    
     Console.WriteLine();
         while(true){
           x[posx,posy] ="o";
