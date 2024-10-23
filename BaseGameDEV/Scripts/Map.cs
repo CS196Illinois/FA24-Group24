@@ -24,7 +24,8 @@ namespace MapEnd
             [2] = "MathQuestion",
             [3] = "MazeGame", 
             [4] = "Shop",
-            [5] = "CardGame"
+            [5] = "Treasure",
+            [6] = "CardGame"
         };
         
         public Dictionary<string, Room> Rooms = new Dictionary<string, Room>(); //The local map storage while program is running.
@@ -100,7 +101,7 @@ namespace MapEnd
             Random random = new Random(); //Randomization
             for (int i = 0; i < rowsize * rowsize; i++) {    
                 //Add rowsize^2 random encounter rooms in a set order
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 5)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 6)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map
@@ -171,6 +172,7 @@ namespace MapEnd
             current.Rooms[$"Room{RMNumber}"].Completed = true;
             current.SaveMap(); //Autosaves this
         }
+
 
 
         //Call the map level function generatemap

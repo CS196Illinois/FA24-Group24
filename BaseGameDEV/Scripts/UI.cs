@@ -17,6 +17,8 @@ namespace UIEnd
             return "Player Commands:\n" +
                    "SETNAME - Set player's name\n" +
                    "GETNAME - Get player's name\n" +
+                   "GETITEM - Get player's items\n" +
+                   "GETSTAT - Get player's stats\n" +
                    "UP - Move up\n" +
                    "DOWN - Move down\n" +
                    "LEFT - Move left\n" +
@@ -24,9 +26,6 @@ namespace UIEnd
                    "Developer Commands: \n" +
                    "GETRM - Get current room\n" +
                    "EXPLORE - Explore the room\n" +
-                   "ECHO - Echo the message\n" +
-                   "SUM - Return the sum of the three numbers\n" +
-                   "HELLO - Hellooooooooooooooooo!\n" + 
                    "GENERATEN - Generate a grid-based map";
         }
 
