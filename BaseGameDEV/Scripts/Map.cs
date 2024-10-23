@@ -36,8 +36,7 @@ namespace MapEnd
         public Dictionary<string, Room> Rooms = new Dictionary<string, Room>(); //The local map storage while program is running.
         public void LoadMap() {  //Load map in json.map into Rooms...
             string e = File.ReadAllText(filepath);
-            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(e);
-            
+            Rooms = JsonSerializer.Deserialize<Dictionary<string, Room>>(e);         
         }
 
         /*
@@ -67,6 +66,8 @@ namespace MapEnd
 
         //2D Array Maybe; make euclidean and playable
 
+        //Size of rows in a map. Total rooms is just rows^2
+        const int rowsize = 5;
 
         //Used to determine if a room logically connects or not
         int RoomLogic(int origin, String movement) {
@@ -74,25 +75,25 @@ namespace MapEnd
             int test;
             //If a room doesn't logically connect, the player will stay in the same room.
             if (movement.Equals("U")) {
-                test = origin + 5;
-                if (test <= 24 && test >= 0) {
+                test = origin + rowsize;
+                if (test <= rowsize * rowsize && test >= 0) {
                     ans = test;
                 }
             } else if (movement.Equals("D")) {
-                test = origin - 5;
-                if (test <= 24 && test >= 0) {
+                test = origin - rowsize;
+                if (test <= rowsize * rowsize && test >= 0) {
                     ans = test;
                 }
                 //Left and right stop the rooms from connecting when they're on opposite sides
-                //Since it's in a grid pattern, you can't move left from room 5 and can't move right from room 4
+                //Since it's in a grid pattern, you can't move left on a leftside edge, and can't move right on a rightside edge
             } else if (movement.Equals("L")) {
                 test = origin - 1;
-                if (origin % 5 != 0) {
+                if (origin % rowsize != 0) {
                     ans = test;
                 }
             } else if (movement.Equals("R")) {
                 test = origin + 1;
-                if (origin % 5 != 4) {
+                if (origin % rowsize != rowsize - 1) {
                     ans = test;
                 }
             }
@@ -103,8 +104,8 @@ namespace MapEnd
             //Prep the list of rooms
             Dictionary<string, Room> temp = new Dictionary<string, Room>();
             Random random = new Random(); //Randomization
-            for (int i = 0; i < 25; i++) {    
-                //Add 25 random encounter rooms in a set order
+            for (int i = 0; i < rowsize * rowsize; i++) {    
+                //Add rowsize^2 random encounter rooms in a set order
                 temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
@@ -117,8 +118,8 @@ namespace MapEnd
             //Prep the list of rooms
             Dictionary<string, Room> temp = new Dictionary<string, Room>();
             Random random = new Random(); //Randomization
-            for (int i = 0; i < 25; i++) {    
-                //Add 25 random rooms, each with a random adjacent array leading to non-euclidean navigating
+            for (int i = 0; i < rowsize * rowsize; i++) {    
+                //Add rowsize^2, each with a random adjacent array leading to non-euclidean navigating
                 temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
@@ -163,6 +164,20 @@ namespace MapEnd
                 return current.Rooms[$"Room{RMNumber}"].Adjacent[3];
             return RMNumber;
         }
+
+        //Function that check/set if map room is completed
+        public Boolean getStatus(int RMNumber) {
+            if (current.Rooms[$"Room{RMNumber}"].Completed) {
+                return true;
+            }
+            return false;
+        }
+
+        public void setStatusDone(int RMNumber) {
+            current.Rooms[$"Room{RMNumber}"].Completed = true;
+            current.SaveMap(); //Autosaves this
+        }
+
 
         //Call the map level function generatemap
         public void Generate() {
