@@ -1,6 +1,7 @@
 using System.Dynamic;
 using System.Net;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 namespace minigame
 {
     class Minigame 
@@ -30,7 +31,7 @@ namespace minigame
         }
         
         //Perhaps keyboard input...
-          public bool mazegame() {
+          public bool MazeGame() {
          String[,] x = new String[8,8];
     bool hassword = false;
         int posx = 0;
@@ -159,9 +160,46 @@ namespace minigame
           }
           Console.WriteLine("Demon is " + (Math.Abs(posx - demnx)) +  " tiles away horizontally and " + (Math.Abs(posy - demny)) + " tiles away vertically");
     }
+          }
+
+    public Dictionary<int, (string, int)> storelist = new Dictionary<int, (string, int)> // Current possible room state
+        {
+            [1] = ("Strength Potion", 3),
+            [2] = ("Health Potion", 3),
+            [3] = ("Speed Potion", 3), 
+            [4] = ("Defense Potion", 3),
+            [5] = ("Key", 10),
+            [6] = ("Rock", 1)
+        };
+    public bool Shop() {
+            List<int> itemnums = new List<int>(); //Creates a list of numbers corresponding to what shop items will be in the shop
+            for (int n = 0; n < 3; n++) {
+              int itemnum = random.Next(1, storelist.Count);
+              while (itemnums.Contains(itemnum)) {
+                itemnum = random.Next(1, storelist.Count);
+              }
+              itemnums.Add(itemnum);
+            }
+            
+            Console.WriteLine($"Welcome to the shop!\nYou can buy:");
+            for (int n = 0; n < itemnums.Count; n++) {
+              Console.WriteLine($"Item {n}: " + storelist[itemnums[n]].Item1 + " Cost: " + storelist[itemnums[n]].Item2);
+            }
+            if (Console.ReadLine() == $"{0}") {
+              Console.WriteLine($"You bought " + storelist[itemnums[0]].Item1);
+            } else if (Console.ReadLine() == $"{1}") {
+              Console.WriteLine($"You bought " + storelist[itemnums[1]].Item1);
+            } else if (Console.ReadLine() == $"{2}") {
+              Console.WriteLine($"You bought " + storelist[itemnums[2]].Item1);
+            } else {
+              Console.WriteLine($"You continue without buying any items");
+            }
+
+            return true;
+        }
 }
 
-    }
+
     class minigameWrapper
     {
         Random random = new Random();

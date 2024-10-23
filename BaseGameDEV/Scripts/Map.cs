@@ -22,15 +22,9 @@ namespace MapEnd
         {
             [1] = "DiceRoll",
             [2] = "MathQuestion",
-            [3] = "Tell me your name", 
-            [4] = "A giant statue",
-            [5] = "Swift-Footed Achilles",
-            [6] = "DiceRoll",
-            [7] = "Hector of Troy",
-            [8] = "Rhesus of Thrace",
-            [9] = "Memnon, Prince of Ethiopia",
-            [10] = "I took a pill in Ibiza",
-            [11] = "Rocket Man"
+            [3] = "MazeGame", 
+            [4] = "Shop",
+            [5] = "CardGame"
         };
         
         public Dictionary<string, Room> Rooms = new Dictionary<string, Room>(); //The local map storage while program is running.
@@ -106,7 +100,7 @@ namespace MapEnd
             Random random = new Random(); //Randomization
             for (int i = 0; i < rowsize * rowsize; i++) {    
                 //Add rowsize^2 random encounter rooms in a set order
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 5)], Completed = false, Adjacent = [RoomLogic(i, "U"), RoomLogic(i, "D"), RoomLogic(i, "L"), RoomLogic(i, "R")]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map
@@ -120,7 +114,7 @@ namespace MapEnd
             Random random = new Random(); //Randomization
             for (int i = 0; i < rowsize * rowsize; i++) {    
                 //Add rowsize^2, each with a random adjacent array leading to non-euclidean navigating
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
+                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 4)], Completed = false, Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map

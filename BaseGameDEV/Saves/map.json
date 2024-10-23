@@ -1,7 +1,7 @@
 {
   "Room0": {
-    "Description": "MathQuestion",
-    "Completed": true,
+    "Description": "MazeGame",
+    "Completed": false,
     "Adjacent": [
       5,
       0,
@@ -10,8 +10,8 @@
     ]
   },
   "Room1": {
-    "Description": "DiceRoll",
-    "Completed": true,
+    "Description": "MazeGame",
+    "Completed": false,
     "Adjacent": [
       6,
       1,
@@ -20,7 +20,7 @@
     ]
   },
   "Room2": {
-    "Description": "DiceRoll",
+    "Description": "Shop",
     "Completed": false,
     "Adjacent": [
       7,
@@ -30,7 +30,7 @@
     ]
   },
   "Room3": {
-    "Description": "MathQuestion",
+    "Description": "MazeGame",
     "Completed": false,
     "Adjacent": [
       8,
@@ -40,7 +40,7 @@
     ]
   },
   "Room4": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
     "Completed": false,
     "Adjacent": [
       9,
@@ -50,7 +50,7 @@
     ]
   },
   "Room5": {
-    "Description": "DiceRoll",
+    "Description": "Shop",
     "Completed": true,
     "Adjacent": [
       10,
@@ -70,7 +70,7 @@
     ]
   },
   "Room7": {
-    "Description": "MathQuestion",
+    "Description": "MazeGame",
     "Completed": false,
     "Adjacent": [
       12,
@@ -90,7 +90,7 @@
     ]
   },
   "Room9": {
-    "Description": "DiceRoll",
+    "Description": "Shop",
     "Completed": false,
     "Adjacent": [
       14,
@@ -100,8 +100,8 @@
     ]
   },
   "Room10": {
-    "Description": "DiceRoll",
-    "Completed": true,
+    "Description": "MazeGame",
+    "Completed": false,
     "Adjacent": [
       15,
       5,
@@ -110,7 +110,7 @@
     ]
   },
   "Room11": {
-    "Description": "MathQuestion",
+    "Description": "MazeGame",
     "Completed": false,
     "Adjacent": [
       16,
@@ -120,7 +120,7 @@
     ]
   },
   "Room12": {
-    "Description": "DiceRoll",
+    "Description": "MazeGame",
     "Completed": false,
     "Adjacent": [
       17,
@@ -130,7 +130,7 @@
     ]
   },
   "Room13": {
-    "Description": "MathQuestion",
+    "Description": "Shop",
     "Completed": false,
     "Adjacent": [
       18,
@@ -151,7 +151,7 @@
   },
   "Room15": {
     "Description": "MathQuestion",
-    "Completed": true,
+    "Completed": false,
     "Adjacent": [
       20,
       10,
@@ -160,7 +160,7 @@
     ]
   },
   "Room16": {
-    "Description": "MathQuestion",
+    "Description": "Shop",
     "Completed": false,
     "Adjacent": [
       21,
@@ -170,7 +170,7 @@
     ]
   },
   "Room17": {
-    "Description": "DiceRoll",
+    "Description": "Shop",
     "Completed": false,
     "Adjacent": [
       22,
@@ -180,7 +180,7 @@
     ]
   },
   "Room18": {
-    "Description": "MathQuestion",
+    "Description": "DiceRoll",
     "Completed": false,
     "Adjacent": [
       23,
@@ -201,16 +201,16 @@
   },
   "Room20": {
     "Description": "MathQuestion",
-    "Completed": true,
+    "Completed": false,
     "Adjacent": [
-      20,
+      25,
       15,
       20,
       21
     ]
   },
   "Room21": {
-    "Description": "DiceRoll",
+    "Description": "Shop",
     "Completed": false,
     "Adjacent": [
       21,
