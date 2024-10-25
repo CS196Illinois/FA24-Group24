@@ -212,7 +212,7 @@ namespace minigame
     };
 
     const int shopsize = 3;
-    public bool Shop()
+    public (string, int) Shop(int coins)
     {
       List<int> itemnums = new List<int>(); //Creates a list of numbers corresponding to what shop items will be in the shop
       for (int n = 0; n < shopsize; n++)
@@ -234,37 +234,57 @@ namespace minigame
       string entered = Console.ReadLine();
       for (int n = 0; n < itemnums.Count; n++)
       {
-        if (entered == $"{n}")
+        if (entered == $"{n}" && coins >= storelist[itemnums[n]].Item2)
         {
           Console.WriteLine($"You bought " + storelist[itemnums[n]].Item1);
-          
-          break;
+          Console.WriteLine($"The shop is now closed");
+          return (storelist[itemnums[n]].Item1, storelist[itemnums[n]].Item2);
+        }
+        else if (entered == $"{n}" && coins < storelist[itemnums[n]].Item2)
+        {
+          Console.WriteLine($"You are " + storelist[itemnums[n]].Item2 + " coins short");
+          return (null, 0);
         }
         else if (n + 1 == itemnums.Count)
         {
-          Console.WriteLine($"You continue without buying any items");
-          break;
+          Console.WriteLine($"You decide to not buy any items");
+          return (null, 0);
         }
       }
-      return true;
+      return (null, 0);
     }
-    public bool Treasure() {
-      Console.WriteLine("You found treasure!");
-      Console.WriteLine("You got nothing!");
-      return true;
+    public (string, int) Treasure(bool instatus)
+    {
+      if (!instatus)
+      {
+        string treasurefound = storelist[random.Next(1,storelist.Count)].Item1;
+        int coinsfound = random.Next(1,5);
+        Console.WriteLine($"You found a {treasurefound}!");
+        Console.WriteLine($"You also found {coinsfound} coins!");
+        return (treasurefound, coinsfound);
+      }
+      else
+      {
+        Console.WriteLine("There was nothing left...");
+        return (null, 0);
+      }
     }
   }
 
 
   class minigameWrapper
   {
+
+
     Random random = new Random();
     Minigame current;
     MethodInfo methodInfo;
-    public minigameWrapper(string command, int diff)
+    bool roomstatus;
+    public minigameWrapper(string command, int diff, bool instate)
     {
       current = new Minigame(diff);
       methodInfo = typeof(Minigame).GetMethod(command);
+      roomstatus = instate;
     }
 
     //Work In Progress
@@ -278,6 +298,12 @@ namespace minigame
       dynamic response = methodInfo.Invoke(current, null);
       return response;
     }
-
+    public (string, int) shopResult(int coins) // Code for handling what happens with the shop
+    {
+      return current.Shop(coins);
+    }
+    public (string, int) treasureResult(bool roomstate) {
+      return current.Treasure(roomstate);
+    }
   }
 }

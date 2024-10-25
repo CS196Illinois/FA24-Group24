@@ -153,10 +153,18 @@ namespace PlayerEnd
         {
             return JsonSerializer.Serialize(player.GetItems());
         }
+        private Dictionary<string, bool> minigamespass = new Dictionary<string, bool> //List of whether player can pass rooms without completion
+        {
+            ["MathQuestion"] = false, // false means can't pass it
+            ["DiceRoll"] = false,
+            ["MazeGame"] = true, // true means you can simply pass it without evaluating
+            ["Shop"] = true,
+            ["Treasure"] = true
+        };
 
         public void UP()
         {
-            if (!mymap.getStatus(player.RMNumber))
+            if (!mymap.getStatus(player.RMNumber) && !minigamespass[mymap.getDescription(player.RMNumber)])
             {  //Just check to see if the room is completed
                 Console.WriteLine("Complete this room first!");
             }
@@ -169,7 +177,7 @@ namespace PlayerEnd
         }
         public void DOWN()
         {
-            if (!mymap.getStatus(player.RMNumber))
+            if (!mymap.getStatus(player.RMNumber) && !minigamespass[mymap.getDescription(player.RMNumber)])
             {
                 Console.WriteLine("Complete this room first!");
             }
@@ -182,7 +190,7 @@ namespace PlayerEnd
         }
         public void LEFT()
         {
-            if (!mymap.getStatus(player.RMNumber))
+            if (!mymap.getStatus(player.RMNumber) && !minigamespass[mymap.getDescription(player.RMNumber)])
             {
                 Console.WriteLine("Complete this room first!");
             }
@@ -195,7 +203,7 @@ namespace PlayerEnd
         }
         public void RIGHT()
         {
-            if (!mymap.getStatus(player.RMNumber))
+            if (!mymap.getStatus(player.RMNumber) && !minigamespass[mymap.getDescription(player.RMNumber)])
             {
                 Console.WriteLine("Complete this room first!");
             }
@@ -244,8 +252,43 @@ namespace PlayerEnd
         {
             if (!mymap.getStatus(player.RMNumber))
             {
-                minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber);
-                if (challenge.checkResult())
+                minigameWrapper challenge = new minigameWrapper(mymap.getDescription(player.RMNumber), player.RMNumber, mymap.getStatus(player.RMNumber));
+
+                if (mymap.getDescription(player.RMNumber).Equals("Shop")) //Code for specifically handling the shop
+                {
+                    (string, int) shopcheck = challenge.shopResult(player.GetStat("Coins"));
+                    if (shopcheck.Item1 == null)
+                    {
+                        return "You may continue";
+                    }
+                    player.AddItem(shopcheck.Item1);
+                    player.SetStat("Coins", player.GetStat("Coins") - shopcheck.Item2);
+                    player.SavePlayer();
+                    mymap.setStatusDone(player.RMNumber);
+                    return "You may continue";
+                }
+                else if (mymap.getDescription(player.RMNumber).Equals("Treasure"))
+                {
+                    (string, int) treasurecheck = challenge.treasureResult(mymap.getStatus(player.RMNumber));
+                    if (treasurecheck.Item1 == null) 
+                    {
+                        return "You may continue";
+                    }
+                    else
+                    {
+                        player.AddItem(treasurecheck.Item1);
+                        player.SetStat("Coins", player.GetStat("Coins") + treasurecheck.Item2);
+                        player.SavePlayer();
+                        mymap.setStatusDone(player.RMNumber);
+                        return "You may continue";
+                    }
+                }
+                //End of code for specific rooms
+                else if (minigamespass[mymap.getDescription(player.RMNumber)] && challenge.checkResult()) //Allows players to move past optional rooms like shop and treasure
+                {
+                    return "You may continue.";
+                }
+                else if (challenge.checkResult())
                 {
                     mymap.setStatusDone(player.RMNumber); //Update room to be completed
                     return "You may continue.";
