@@ -1,6 +1,7 @@
 # Ignore the Directory
 bin/
 obj/
+UnityUICS124H/
 
 # Ignore the file
 *.csproj
