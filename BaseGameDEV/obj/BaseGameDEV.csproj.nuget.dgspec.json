@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/BaseGameDEV.csproj": {}
+    "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj": {}
   },
   "projects": {
-    "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/BaseGameDEV.csproj": {
+    "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/BaseGameDEV.csproj",
+        "projectUniqueName": "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj",
         "projectName": "BaseGameDEV",
-        "projectPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/BaseGameDEV.csproj",
-        "packagesPath": "/Users/natedee/.nuget/packages/",
-        "outputPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/obj/",
+        "projectPath": "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj",
+        "packagesPath": "C:\\Users\\zacha\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/natedee/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\zacha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -36,9 +36,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -59,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
