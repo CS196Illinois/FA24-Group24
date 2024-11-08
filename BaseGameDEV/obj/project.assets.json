@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/BaseGameDEV.csproj",
+      "projectUniqueName": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-5/BaseGameDEV/BaseGameDEV.csproj",
       "projectName": "BaseGameDEV",
-      "projectPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/BaseGameDEV.csproj",
+      "projectPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-5/BaseGameDEV/BaseGameDEV.csproj",
       "packagesPath": "/Users/natedee/.nuget/packages/",
-      "outputPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-3/BaseGameDEV/obj/",
+      "outputPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-5/BaseGameDEV/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/natedee/.nuget/NuGet/NuGet.Config"

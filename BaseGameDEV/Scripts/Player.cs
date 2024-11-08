@@ -100,15 +100,15 @@ namespace PlayerEnd
             return items;
         }
 
-        public void AddItem(string cat)
+        public void SetItem(string cat, int val)
         {
             if (items.ContainsKey(cat))
             {
-                items[cat] = items[cat] + 1;
+                items[cat] = items[cat] + val;
             }
             else
             {
-                items.Add(cat, 1);
+                items.Add(cat, val);
             }
         }
 
@@ -257,11 +257,11 @@ namespace PlayerEnd
                 if (mymap.getDescription(player.RMNumber).Equals("Shop")) //Code for specifically handling the shop
                 {
                     (string, int) shopcheck = challenge.shopResult(player.GetStat("Coins"));
-                    if (shopcheck.Item1 == null)
+                    if (shopcheck.Item1 != null)
                     {
                         return "You may continue";
                     }
-                    player.AddItem(shopcheck.Item1);
+                    player.SetItem(shopcheck.Item1, 1);
                     player.SetStat("Coins", player.GetStat("Coins") - shopcheck.Item2);
                     player.SavePlayer();
                     mymap.setStatusDone(player.RMNumber);
@@ -270,18 +270,24 @@ namespace PlayerEnd
                 else if (mymap.getDescription(player.RMNumber).Equals("Treasure"))
                 {
                     (string, int) treasurecheck = challenge.treasureResult(mymap.getStatus(player.RMNumber));
-                    if (treasurecheck.Item1 == null) 
+                    if (treasurecheck.Item1 != null) 
                     {
-                        return "You may continue";
-                    }
-                    else
-                    {
-                        player.AddItem(treasurecheck.Item1);
+                        player.SetItem(treasurecheck.Item1, 1);
                         player.SetStat("Coins", player.GetStat("Coins") + treasurecheck.Item2);
                         player.SavePlayer();
                         mymap.setStatusDone(player.RMNumber);
-                        return "You may continue";
                     }
+                    return "You may continue";
+                }
+                else if (mymap.getDescription(player.RMNumber).Equals("Keyroom"))
+                {
+                    bool keycheck = challenge.keyResult(player.GetItems()["Key"]);
+                    if (keycheck) 
+                    {
+                        player.SetItem("Key", player.GetItems()["Key"] - 1);
+                        mymap.setStatusDone(player.RMNumber);
+                    }
+                    return "You may continue";
                 }
                 //End of code for specific rooms
                 else if (minigamespass[mymap.getDescription(player.RMNumber)] && challenge.checkResult()) //Allows players to move past optional rooms like shop and treasure

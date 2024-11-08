@@ -253,7 +253,7 @@ namespace minigame
       }
       return (null, 0);
     }
-    public (string, int) Treasure(bool instatus)
+    public (string?, int) Treasure(bool instatus)
     {
       if (!instatus)
       {
@@ -267,6 +267,18 @@ namespace minigame
       {
         Console.WriteLine("There was nothing left...");
         return (null, 0);
+      }
+    }
+    public bool Keyroom(int keys) {
+      if (keys > 0) 
+      {
+        Console.WriteLine("You hear the distant sound of a door opening");
+        return true;
+      }
+      else
+      {
+        Console.WriteLine("You need a key first! Go find one!");
+      return false;
       }
     }
   }
@@ -304,6 +316,9 @@ namespace minigame
     }
     public (string, int) treasureResult(bool roomstate) {
       return current.Treasure(roomstate);
+    }
+    public bool keyResult(int keys) {
+      return current.Keyroom(keys);
     }
   }
 }

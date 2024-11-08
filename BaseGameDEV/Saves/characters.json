@@ -3,7 +3,7 @@
   "Stats": {
     "HP": 100,
     "EXP": 10000,
-    "Coins": 4,
+    "Coins": 5,
     "ATK": 5,
     "DEF": 5,
     "SPD": 5,
@@ -11,9 +11,10 @@
     "INT": 5
   },
   "Items": {
-    "Key": 2,
+    "Key": 3,
     "Strength Potion": 3,
-    "Defense Potion": 1
+    "Defense Potion": 1,
+    "Speed Potion": 1
   },
-  "RoomNumber": 0
+  "RoomNumber": 8
 }
