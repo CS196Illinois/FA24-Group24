@@ -19,7 +19,11 @@ namespace MapEnd
             public int Num {get; set;}
         }
 
+<<<<<<< HEAD
         static string filepath = "C:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\Saves\\map.json"; //Address 
+=======
+        static string filepath = "C:\\Users\\zacha\\FA24-Group24-4\\BaseGameDEV\\Saves\\map.json"; //Address 
+>>>>>>> origin/ZachWork
         public Dictionary<int, string> mapInfo = new Dictionary<int, string> // Current possible room state
         {
             [1] = "Key",
