@@ -22,12 +22,12 @@ namespace UIEnd
                    "LEFT - Move left\n" +
                    "RIGHT - Move right\n" +
                    "Developer Commands: \n" +
-                   "GETRM - Get current room\n" +
+                   "GETPOS - Get current room\n" +
                    "EXPLORE - Explore the room\n" +
                    "ECHO - Echo the message\n" +
                    "SUM - Return the sum of the three numbers\n" +
                    "HELLO - Hellooooooooooooooooo!\n" + 
-                   "GENERATE - Generate new Map";
+                   "GENERATEN - Generate new Map";
         }
 
         // Processes user commands and invokes corresponding actions

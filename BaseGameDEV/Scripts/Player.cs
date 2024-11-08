@@ -19,11 +19,7 @@ namespace PlayerEnd
         }
     
         //Loading in Player
-<<<<<<< HEAD
-        string filepath = "C:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\Saves\\characters.json";
-=======
-        string filepath = "C:\\Users\\zacha\\FA24-Group24-4\\BaseGameDEV\\Saves\\characters.json";
->>>>>>> origin/ZachWork
+        string filepath = "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/Saves/characters.json";
         private string? name;
         private Dictionary<string, int>? stats;
         public Point RMPos;
@@ -251,12 +247,6 @@ namespace PlayerEnd
                 return "You have completed this room before";
             }
             
-        }
-
-        //generate --> MapAction Generate --> Map GenerateMap Deprecated lowercase
-        public string generate() {
-            mymap.Generate();
-            return "New Random Map Generated";
         }
 
         //GENERATEN --> MapAction GenerateNormal --> Map GenerateNormalMap

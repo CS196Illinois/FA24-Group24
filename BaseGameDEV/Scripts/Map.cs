@@ -19,11 +19,7 @@ namespace MapEnd
             public int Num {get; set;}
         }
 
-<<<<<<< HEAD
-        static string filepath = "C:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\Saves\\map.json"; //Address 
-=======
-        static string filepath = "C:\\Users\\zacha\\FA24-Group24-4\\BaseGameDEV\\Saves\\map.json"; //Address 
->>>>>>> origin/ZachWork
+        static string filepath = "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/Saves/map.json"; //Address 
         public Dictionary<int, string> mapInfo = new Dictionary<int, string> // Current possible room state
         {
             [1] = "Key",
@@ -64,10 +60,7 @@ namespace MapEnd
 
         */
 
-        //2D Array Maybe; make euclidean and playable
 
-        //Size of rows in a map. Total rooms is just rows^2
-        const int rowsize = 5;
         //Number of tiles in a map
         const int numTiles = numKeys + numMinigames + numCombats + numItems + numEmpty;
         //Breakdown of room types
@@ -78,36 +71,7 @@ namespace MapEnd
         //Must have at least 1 empty room, starting room is always empty
         const int numEmpty = 10;
         //Used to determine if a room logically connects or not
-        int RoomLogic(int origin, String movement) {
-
-            int ans = origin;
-            int test;
-            //If a room doesn't logically connect, the player will stay in the same room.
-            if (movement.Equals("U")) {
-                test = origin + rowsize;
-                if (test <= rowsize * rowsize && test >= 0) {
-                    ans = test;
-                }
-            } else if (movement.Equals("D")) {
-                test = origin - rowsize;
-                if (test <= rowsize * rowsize && test >= 0) {
-                    ans = test;
-                }
-                //Left and right stop the rooms from connecting when they're on opposite sides
-                //Since it's in a grid pattern, you can't move left on a leftside edge, and can't move right on a rightside edge
-            } else if (movement.Equals("L")) {
-                test = origin - 1;
-                if (origin % rowsize != 0) {
-                    ans = test;
-                }
-            } else if (movement.Equals("R")) {
-                test = origin + 1;
-                if (origin % rowsize != rowsize - 1) {
-                    ans = test;
-                }
-            }
-            return ans;
-        }
+        
         public List<String> generateDescriptions() {
             List<String> descriptions = new List<string>();
             for (int x = 0; x < numKeys; x++) {
@@ -174,20 +138,6 @@ namespace MapEnd
                         isAdded = true;
                     }
                 }
-            }  
-            File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
-            LoadMap(); //Reload the map
-            return "Completed";
-        }  
-
-        public string GenerateMap() {
-            File.WriteAllText(filepath, ""); //Clear the file
-            //Prep the list of rooms
-            Dictionary<string, Room> temp = new Dictionary<string, Room>();
-            Random random = new Random(); //Randomization
-            for (int i = 0; i < rowsize * rowsize; i++) {    
-                //Add rowsize^2, each with a random adjacent array leading to non-euclidean navigating
-                temp.Add($"Room{i}", new Room(){Description = mapInfo[random.Next(1, 3)], Completed = false, Adjacent = [random.Next(0, 25), random.Next(0, 25), random.Next(0, 25), random.Next(0, 25)]});
             }  
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
             LoadMap(); //Reload the map
@@ -274,9 +224,7 @@ namespace MapEnd
 
 
         //Call the map level function generatemap
-        public void Generate() {
-            current.GenerateMap();
-        }  
+        
         public void GenerateNormal() {
             current.GenerateNormalMap();
         }  
