@@ -40,24 +40,23 @@ namespace MapEnd
 
         /*
         JSON Template: 
-            {
-            "Room0,0" :    
-            {
-                "Description" : "Nothing is here",
-                "Completed" : true
-            },
-            "Room1,0" : 
-            {
-                "Description" : "Nothing is here",
-                "Completed" : false
-            }, 
-            "Room2,0" :
-            {
-                "Description" : "Everything is here",
-                "Completed" : false
-            }
+        {
+            "Room0,0": {
+            "Description": "Shop",
+            "Completed": false,
+            "Num": 0
+        },
+        "Room0,1": {
+            "Description": "Minigame",
+            "Completed": false,
+            "Num": 1
+        },
+        "Room0,-1": {
+            "Description": "Empty",
+            "Completed": false,
+            "Num": 2
         }
-
+        }
         */
 
 
@@ -70,7 +69,7 @@ namespace MapEnd
         const int numItems = 5;
         //Must have at least 1 empty room, starting room is always empty
         const int numEmpty = 10;
-        //Used to determine if a room logically connects or not
+        const int numShop = 3;
 
         public List<String> generateDescriptions()
         {
@@ -90,6 +89,9 @@ namespace MapEnd
             for (int x = 0; x < numItems; x++)
             {
                 descriptions.Add("Item");
+            }
+            for (int x = 0; x < numShop; x++) {
+                descriptions.Add("Shop");
             }
             for (int x = 0; x < numEmpty - 1; x++)
             {
@@ -133,14 +135,14 @@ namespace MapEnd
                     }
                     Room newOutput;
 
-                    
+
                     Room adjacentOutput;
                     if (!temp.TryGetValue($"Room{point.X},{point.Y}", out newOutput))
                     { //Creates new room when a blank space is found, updating adjacent information on both the new room and the rooms it connects to.
                         temp.Add($"Room{point.X},{point.Y}", new Room() { Description = description, Completed = false, Num = i });
                         isAdded = true;
                     }
-                    
+
                 }
             }
             File.WriteAllText(filepath, JsonSerializer.Serialize(temp, new JsonSerializerOptions { WriteIndented = true })); //Convert to Json and add
@@ -205,27 +207,32 @@ namespace MapEnd
         {
             if (direction == "UP")
             {
-                if (current.Rooms.TryGetValue($"Room{RMPos.X},{RMPos.Y + 1}", out var room)) {
+                if (current.Rooms.TryGetValue($"Room{RMPos.X},{RMPos.Y + 1}", out var room))
+                {
                     return true;
                 }
                 return false;
             }
             else if (direction == "DOWN")
             {
-                if (current.Rooms.TryGetValue($"Room{RMPos.X},{RMPos.Y - 1}", out var room)) {
+                if (current.Rooms.TryGetValue($"Room{RMPos.X},{RMPos.Y - 1}", out var room))
+                {
                     return true;
                 }
                 return false;
             }
             else if (direction == "LEFT")
             {
-                if (current.Rooms.TryGetValue($"Room{RMPos.X - 1},{RMPos.Y}", out var room)) {
+                if (current.Rooms.TryGetValue($"Room{RMPos.X - 1},{RMPos.Y}", out var room))
+                {
                     return true;
                 }
                 return false;
             }
-            else if (direction == "RIGHT") {
-                if (current.Rooms.TryGetValue($"Room{RMPos.X + 1},{RMPos.Y}", out var room)) {
+            else if (direction == "RIGHT")
+            {
+                if (current.Rooms.TryGetValue($"Room{RMPos.X + 1},{RMPos.Y}", out var room))
+                {
                     return true;
                 }
                 return false;
