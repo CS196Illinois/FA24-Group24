@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj": {}
+    "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/BaseGameDEV.csproj": {}
   },
   "projects": {
-    "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj": {
+    "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/BaseGameDEV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj",
+        "projectUniqueName": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/BaseGameDEV.csproj",
         "projectName": "BaseGameDEV",
-        "projectPath": "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\BaseGameDEV.csproj",
-        "packagesPath": "C:\\Users\\zacha\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\obj\\",
+        "projectPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/BaseGameDEV.csproj",
+        "packagesPath": "/Users/natedee/.nuget/packages/",
+        "outputPath": "/Users/natedee/Documents/UIUC/F24/CS124H/FA24-Group24-6/BaseGameDEV/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\zacha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/natedee/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -36,8 +36,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -58,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

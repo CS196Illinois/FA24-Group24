@@ -1,277 +1,127 @@
 {
   "Room0,0": {
     "Description": "Empty",
-    "Completed": true,
-    "Adjacent": [
-      2,
-      1,
-      6,
-      5
-    ],
+    "Completed": false,
     "Num": 0
+  },
+  "Room0,1": {
+    "Description": "Empty",
+    "Completed": false,
+    "Num": 1
   },
   "Room0,-1": {
     "Description": "Empty",
     "Completed": false,
-    "Adjacent": [
-      0,
-      -1,
-      11,
-      8
-    ],
-    "Num": 1
-  },
-  "Room0,1": {
-    "Description": "Item",
-    "Completed": true,
-    "Adjacent": [
-      4,
-      0,
-      3,
-      12
-    ],
     "Num": 2
   },
-  "Room-1,1": {
-    "Description": "Minigame",
+  "Room1,0": {
+    "Description": "Item",
     "Completed": false,
-    "Adjacent": [
-      7,
-      6,
-      -1,
-      2
-    ],
     "Num": 3
   },
-  "Room0,2": {
-    "Description": "Key",
-    "Completed": true,
-    "Adjacent": [
-      13,
-      2,
-      7,
-      15
-    ],
-    "Num": 4
-  },
-  "Room1,0": {
-    "Description": "Minigame",
-    "Completed": false,
-    "Adjacent": [
-      12,
-      8,
-      0,
-      9
-    ],
-    "Num": 5
-  },
-  "Room-1,0": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      3,
-      11,
-      17,
-      0
-    ],
-    "Num": 6
-  },
-  "Room-1,2": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      22,
-      3,
-      -1,
-      4
-    ],
-    "Num": 7
-  },
-  "Room1,-1": {
-    "Description": "Combat",
-    "Completed": false,
-    "Adjacent": [
-      5,
-      -1,
-      1,
-      10
-    ],
-    "Num": 8
-  },
-  "Room2,0": {
-    "Description": "Key",
-    "Completed": false,
-    "Adjacent": [
-      19,
-      10,
-      5,
-      16
-    ],
-    "Num": 9
-  },
-  "Room2,-1": {
+  "Room-1,1": {
     "Description": "Empty",
     "Completed": false,
-    "Adjacent": [
-      9,
-      14,
-      8,
-      21
-    ],
+    "Num": 4
+  },
+  "Room1,1": {
+    "Description": "Combat",
+    "Completed": false,
+    "Num": 5
+  },
+  "Room0,-2": {
+    "Description": "Item",
+    "Completed": false,
+    "Num": 6
+  },
+  "Room1,-1": {
+    "Description": "Empty",
+    "Completed": false,
+    "Num": 7
+  },
+  "Room0,2": {
+    "Description": "Minigame",
+    "Completed": false,
+    "Num": 8
+  },
+  "Room1,-2": {
+    "Description": "Combat",
+    "Completed": false,
+    "Num": 9
+  },
+  "Room-1,0": {
+    "Description": "Empty",
+    "Completed": false,
     "Num": 10
   },
   "Room-1,-1": {
-    "Description": "Empty",
+    "Description": "Minigame",
     "Completed": false,
-    "Adjacent": [
-      6,
-      -1,
-      18,
-      1
-    ],
     "Num": 11
   },
-  "Room1,1": {
-    "Description": "Minigame",
+  "Room1,2": {
+    "Description": "Key",
     "Completed": false,
-    "Adjacent": [
-      15,
-      5,
-      2,
-      19
-    ],
     "Num": 12
   },
-  "Room0,3": {
-    "Description": "Minigame",
-    "Completed": true,
-    "Adjacent": [
-      -1,
-      4,
-      22,
-      -1
-    ],
+  "Room2,1": {
+    "Description": "Empty",
+    "Completed": false,
     "Num": 13
   },
-  "Room2,-2": {
-    "Description": "Empty",
+  "Room-1,-2": {
+    "Description": "Minigame",
     "Completed": false,
-    "Adjacent": [
-      10,
-      -1,
-      -1,
-      -1
-    ],
     "Num": 14
   },
-  "Room1,2": {
-    "Description": "Empty",
+  "Room2,-2": {
+    "Description": "Minigame",
     "Completed": false,
-    "Adjacent": [
-      -1,
-      12,
-      4,
-      -1
-    ],
     "Num": 15
-  },
-  "Room3,0": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      21,
-      9,
-      -1
-    ],
-    "Num": 16
   },
   "Room-2,0": {
     "Description": "Empty",
     "Completed": false,
-    "Adjacent": [
-      -1,
-      18,
-      20,
-      6
-    ],
-    "Num": 17
-  },
-  "Room-2,-1": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      17,
-      -1,
-      -1,
-      11
-    ],
-    "Num": 18
-  },
-  "Room2,1": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      9,
-      12,
-      -1
-    ],
-    "Num": 19
+    "Num": 16
   },
   "Room-3,0": {
     "Description": "Empty",
     "Completed": false,
-    "Adjacent": [
-      23,
-      -1,
-      -1,
-      17
-    ],
-    "Num": 20
+    "Num": 17
   },
-  "Room3,-1": {
+  "Room0,3": {
+    "Description": "Item",
+    "Completed": false,
+    "Num": 18
+  },
+  "Room2,2": {
     "Description": "Minigame",
     "Completed": false,
-    "Adjacent": [
-      16,
-      -1,
-      10,
-      -1
-    ],
-    "Num": 21
+    "Num": 19
   },
-  "Room-1,3": {
-    "Description": "Empty",
+  "Room1,-3": {
+    "Description": "Item",
     "Completed": false,
-    "Adjacent": [
-      -1,
-      7,
-      24,
-      13
-    ],
-    "Num": 22
+    "Num": 20
   },
-  "Room-3,1": {
-    "Description": "Combat",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      20,
-      -1,
-      -1
-    ],
-    "Num": 23
-  },
-  "Room-2,3": {
+  "Room2,0": {
     "Description": "Key",
     "Completed": false,
-    "Adjacent": [
-      -1,
-      -1,
-      -1,
-      22
-    ],
+    "Num": 21
+  },
+  "Room2,-1": {
+    "Description": "Key",
+    "Completed": false,
+    "Num": 22
+  },
+  "Room-1,2": {
+    "Description": "Empty",
+    "Completed": false,
+    "Num": 23
+  },
+  "Room3,-2": {
+    "Description": "Item",
+    "Completed": false,
     "Num": 24
   }
 }
