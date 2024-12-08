@@ -19,11 +19,7 @@ namespace PlayerEnd
         }
     
         //Loading in Player
-<<<<<<< HEAD
-        string filepath = "C:\\Users\\zacha\\FA24-Group24-6\\BaseGameDEV\\Saves\\characters.json";
-=======
-        string filepath = "C:\\Users\\zacha\\FA24-Group24-4\\BaseGameDEV\\Saves\\characters.json";
->>>>>>> origin/ZachWork
+        string filepath = "./Saves/characters.json";
         private string? name;
         private Dictionary<string, int>? stats;
         public Point RMPos;

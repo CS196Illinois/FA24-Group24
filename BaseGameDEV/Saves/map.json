@@ -1,296 +1,26 @@
 {
   "Room0,0": {
     "Description": "Empty",
-<<<<<<< HEAD
-    "Completed": false,
-    "Adjacent": [
-      3,
-      1,
-      12,
-      2
-=======
     "Completed": true,
     "Adjacent": [
       2,
       1,
       6,
       5
->>>>>>> origin/ZachWork
     ],
     "Num": 0
   },
   "Room0,-1": {
-<<<<<<< HEAD
-    "Description": "Key",
-    "Completed": false,
-    "Adjacent": [
-      0,
-      11,
-      13,
-=======
     "Description": "Empty",
     "Completed": false,
     "Adjacent": [
       0,
       -1,
       11,
->>>>>>> origin/ZachWork
       8
     ],
     "Num": 1
   },
-<<<<<<< HEAD
-  "Room1,0": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      5,
-      8,
-      0,
-      6
-    ],
-    "Num": 2
-  },
-  "Room0,1": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      15,
-      0,
-      4,
-      5
-    ],
-    "Num": 3
-  },
-  "Room-1,1": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      12,
-      7,
-      3
-    ],
-    "Num": 4
-  },
-  "Room1,1": {
-    "Description": "Combat",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      2,
-      3,
-      22
-    ],
-    "Num": 5
-  },
-  "Room2,0": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      22,
-      9,
-      2,
-      -1
-    ],
-    "Num": 6
-  },
-  "Room-2,1": {
-    "Description": "Minigame",
-    "Completed": false,
-    "Adjacent": [
-      18,
-      19,
-      23,
-      4
-    ],
-    "Num": 7
-  },
-  "Room1,-1": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      2,
-      14,
-      1,
-      9
-    ],
-    "Num": 8
-  },
-  "Room2,-1": {
-    "Description": "Key",
-    "Completed": false,
-    "Adjacent": [
-      6,
-      10,
-      8,
-      16
-    ],
-    "Num": 9
-  },
-  "Room2,-2": {
-    "Description": "Minigame",
-    "Completed": false,
-    "Adjacent": [
-      9,
-      17,
-      14,
-      21
-    ],
-    "Num": 10
-  },
-  "Room0,-2": {
-    "Description": "Minigame",
-    "Completed": false,
-    "Adjacent": [
-      1,
-      -1,
-      20,
-      14
-    ],
-    "Num": 11
-  },
-  "Room-1,0": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      4,
-      13,
-      19,
-      0
-    ],
-    "Num": 12
-  },
-  "Room-1,-1": {
-    "Description": "Key",
-    "Completed": false,
-    "Adjacent": [
-      12,
-      20,
-      -1,
-      1
-    ],
-    "Num": 13
-  },
-  "Room1,-2": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      8,
-      -1,
-      11,
-      10
-    ],
-    "Num": 14
-  },
-  "Room0,2": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      24,
-      3,
-      -1,
-      -1
-    ],
-    "Num": 15
-  },
-  "Room3,-1": {
-    "Description": "Combat",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      21,
-      9,
-      -1
-    ],
-    "Num": 16
-  },
-  "Room2,-3": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      10,
-      -1,
-      -1,
-      -1
-    ],
-    "Num": 17
-  },
-  "Room-2,2": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      7,
-      -1,
-      -1
-    ],
-    "Num": 18
-  },
-  "Room-2,0": {
-    "Description": "Minigame",
-    "Completed": false,
-    "Adjacent": [
-      7,
-      -1,
-      -1,
-      12
-    ],
-    "Num": 19
-  },
-  "Room-1,-2": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      13,
-      -1,
-      -1,
-      11
-    ],
-    "Num": 20
-  },
-  "Room3,-2": {
-    "Description": "Empty",
-    "Completed": false,
-    "Adjacent": [
-      16,
-      -1,
-      10,
-      -1
-    ],
-    "Num": 21
-  },
-  "Room2,1": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      6,
-      5,
-      -1
-    ],
-    "Num": 22
-  },
-  "Room-3,1": {
-    "Description": "Minigame",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      -1,
-      -1,
-      7
-    ],
-    "Num": 23
-  },
-  "Room0,3": {
-    "Description": "Item",
-    "Completed": false,
-    "Adjacent": [
-      -1,
-      15,
-      -1,
-      -1
-=======
   "Room0,1": {
     "Description": "Item",
     "Completed": true,
@@ -541,7 +271,6 @@
       -1,
       -1,
       22
->>>>>>> origin/ZachWork
     ],
     "Num": 24
   }
